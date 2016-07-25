@@ -18,3 +18,9 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+///////////////////////
+// LANGUAGE SWITCHER //
+///////////////////////
+
+Route::get('lang/{lang}', ['as' => 'lang.switch', 'middleware' => 'web', 'uses' => 'LanguageController@switchLang']);

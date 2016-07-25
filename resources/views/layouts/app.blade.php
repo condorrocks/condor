@@ -50,6 +50,8 @@
                     <li><a href="{{ url('/home') }}">Home</a></li>
                 </ul>
 
+                @include('_navi18n')
+
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
