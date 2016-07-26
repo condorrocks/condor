@@ -1,8 +1,8 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
-    "license": "MIT",
+    "name": "alariva/condor",
+    "description": "Condor is a simple server monitoring feed aggregator.",
+    "keywords": ["server", "monitoring", "feed", "aggregator", "dashboard", "sysadmin"],
+    "license": "AGPL",
     "type": "project",
     "require": {
         "php": ">=5.5.9",
