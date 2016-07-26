@@ -18,6 +18,8 @@ class CreateAccountUserPivotTable extends Migration
             $table->integer('user_id')->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->nullableTimestamps();
+
+            $table->unique(['account_id', 'user_id']);
         });
     }
 

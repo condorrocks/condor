@@ -36,30 +36,6 @@ class UptimeFeed
 
         $collection = collect($this->feed->monitors->monitor);
 
-        $collection->transform(function ($item, $key) {
-
-            switch ($item->status) {
-                default:
-                case '0':
-                case '1':
-                    $item->statuslabel = 'default';
-                    break;
-                case '2':
-                    $item->statuslabel = 'success';
-                    break;
-                case '8':
-                    $item->statuslabel = 'warning';
-                    break;
-                case '9':
-                    $item->statuslabel = 'danger';
-                    break;
-            }
-
-            return $item;
-        });
-
-        // $this->feed->monitors->monitor = $collection;
-
         $this->snapshots = $collection;
 
         return $this;

@@ -15,8 +15,18 @@ class Board extends Model
         'name',
     ];
 
+    public function accounts()
+    {
+        return $this->belongsToMany(Account::class);
+    }
+
     public function feeds()
     {
-        return $this->hasMany(App\Feed::class);
+        return $this->belongsToMany(Feed::class);
+    }
+
+    public function snapshots()
+    {
+        return $this->hasMany(Snapshot::class)->with('aspect');
     }
 }

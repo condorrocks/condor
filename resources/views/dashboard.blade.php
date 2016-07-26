@@ -7,7 +7,7 @@
 
             <h1>{{ trans('dashboard.title') }}</h1>
 
-            @include('panels/uptime', compact('uprobot'))
+            @each('panels.panel', $panels, 'panel')
 
         </div>
     </div>

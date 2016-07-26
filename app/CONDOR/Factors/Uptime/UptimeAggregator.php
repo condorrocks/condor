@@ -16,7 +16,8 @@ class UptimeAggregator
     public function summarize()
     {
         $this->online = $this->snapshots->reduce(function ($carry, $item) {
-            return ($item->status == 2) && $carry;
+            $data = json_decode($item->data);
+            return ($data->status == 2) && $carry;
         }, true);
 
         return $this;
@@ -25,8 +26,14 @@ class UptimeAggregator
     public function snapshot()
     {
         return [
-            'online' => $this->online,
+            'label'     => $this->statusLabel($this->online),
+            'online'    => $this->online,
             'snapshots' => $this->snapshots->toArray(),
             ];
+    }
+
+    protected function statusLabel($isOnline)
+    {
+        return $isOnline ? 'success' : 'danger';
     }
 }

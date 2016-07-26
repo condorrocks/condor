@@ -18,6 +18,8 @@ class CreateAccountBoardPivotTable extends Migration
             $table->integer('board_id')->unsigned()->index();
             $table->foreign('board_id')->references('id')->on('boards')->onDelete('cascade');
             $table->nullableTimestamps();
+
+            $table->unique(['account_id', 'board_id']);
         });
     }
 

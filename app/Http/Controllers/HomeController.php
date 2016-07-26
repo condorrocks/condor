@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Alariva\UptimeRobot\UptimeRobot;
+use App\Condor\Panels\PanelsBuilder;
+use Illuminate\Support\Collection;
 
 class HomeController extends Controller
 {
@@ -23,8 +24,15 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $accounts = auth()->user()->accounts()->get();
+        
+        $panels = [];
+        foreach ($accounts as $account) {
+            $panels[] = with(new PanelsBuilder($account->boards))->get();
+        }
 
+        $panels = collect($panels)->collapse();
 
-        return view('home', compact('monitors'));
+        return view('dashboard', compact('panels'));
     }
 }

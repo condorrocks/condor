@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFeedsTable extends Migration
+class CreateAspectsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,9 @@ class CreateFeedsTable extends Migration
      */
     public function up()
     {
-        Schema::create('feeds', function (Blueprint $table) {
+        Schema::create('aspects', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('aspect_id')->unsigned()->index();
-            $table->foreign('aspect_id')->references('id')->on('aspects')->onDelete('cascade');
             $table->string('name');
-            $table->string('apikey');
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ class CreateFeedsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('feeds');
+        Schema::drop('aspects');
     }
 }

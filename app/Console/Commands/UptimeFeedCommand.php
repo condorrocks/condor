@@ -2,11 +2,13 @@
 
 namespace App\Console\Commands;
 
+use App\Aspect;
+use App\Board;
 use App\Condor\Factors\Uptime\UptimeAggregator;
 use App\Condor\Factors\Uptime\UptimeFeed;
-use App\Feed;
+use App\Snapshot;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
-use Illuminate\Support\Collection;
 
 class UptimeFeedCommand extends Command
 {
@@ -41,15 +43,39 @@ class UptimeFeedCommand extends Command
      */
     public function handle()
     {
-        $feeds = Feed::all();
+        $boards = Board::all();
 
-        $snapshots = new Collection;
+        $this->processBoards($boards);
+    }
+
+    protected function processBoards($boards)
+    {
+        foreach ($boards as $board) {
+            $this->processFeeds($board, $board->feeds);
+        }
+    }
+
+    protected function processFeeds($board, $feeds)
+    {
+        # $indicators = new Collection();
         foreach ($feeds as $feed) {
             $uptimefeed = new UptimeFeed($feed->apikey);
-            $snapshots->push($uptimefeed->run()->snapshot());
+            $snapshotData = $uptimefeed->run()->snapshot();
+            # $indicators->push();
+
+            $snapshot = Snapshot::updateOrCreate([
+                'board_id'  => $board->id,
+                'aspect_id' => Aspect::whereName('uptime')->first()->id,
+                'hash'      => md5("{$feed->name}/{$feed->apikey}"),
+                ], [
+
+                'timestamp' => Carbon::now(),
+                'target'    => $feed->name,
+                'data'      => json_encode($snapshotData),
+                ]);
         }
 
-        $aggregator = new UptimeAggregator($snapshots);
-        var_dump($aggregator->summarize()->snapshot());
+        # $aggregator = new UptimeAggregator($snapshots);
+        # var_dump($aggregator->summarize()->snapshot());
     }
 }

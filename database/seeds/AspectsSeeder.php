@@ -1,8 +1,9 @@
 <?php
 
+use App\Aspect;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class AspectsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,8 +12,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(AspectsSeeder::class);
-
-        $this->call(TestingDatabaseSeeder::class);
+        Aspect::updateOrCreate(['name' => 'uptime']);
     }
 }

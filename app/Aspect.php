@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Account extends Model
+class Aspect extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -15,16 +15,13 @@ class Account extends Model
         'name',
     ];
 
-    public function boards()
+    public function feeds()
     {
-        return $this->belongstoMany(Board::class)->with('snapshots');
+        return $this->hasMany(Feed::class);
     }
 
     public function snapshots()
     {
-        return $this->hasManyThrough(
-            Snapshot::class, Board::class,
-            'id', 'board_id'
-        );
+        return $this->hasMany(Snapshot::class);
     }
 }

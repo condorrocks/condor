@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFeedsTable extends Migration
+class CreateSnapshotsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,19 @@ class CreateFeedsTable extends Migration
      */
     public function up()
     {
-        Schema::create('feeds', function (Blueprint $table) {
+        Schema::create('snapshots', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('board_id')->unsigned()->index();
+            $table->foreign('board_id')->references('id')->on('boards')->onDelete('cascade');
             $table->integer('aspect_id')->unsigned()->index();
             $table->foreign('aspect_id')->references('id')->on('aspects')->onDelete('cascade');
-            $table->string('name');
-            $table->string('apikey');
+            $table->string('hash')->index();
+            $table->timestamp('timestamp')->useCurrent()->index();
+            $table->longText('data');
+            $table->string('target')->index();
             $table->timestamps();
+
+            $table->unique(['aspect_id', 'target']);
         });
     }
 
@@ -29,6 +35,6 @@ class CreateFeedsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('feeds');
+        Schema::drop('snapshots');
     }
 }

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Feed extends Model
+class Snapshot extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,12 +12,12 @@ class Feed extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'apikey', 'aspect_id',
+        'board_id', 'aspect_id', 'hash', 'target', 'timestamp', 'data',
     ];
 
-    public function boards()
+    public function board()
     {
-        return $this->belongsToMany(Board::class);
+        return $this->belongsTo(Board::class);
     }
 
     public function aspect()
