@@ -4,8 +4,7 @@ namespace App\Console\Commands;
 
 use App\Aspect;
 use App\Board;
-use App\Condor\Factors\Uptime\UptimeAggregator;
-use App\Condor\Factors\Uptime\UptimeFeed;
+use App\Condor\Aspects\Uptime\UptimeFeed;
 use App\Snapshot;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
@@ -57,25 +56,19 @@ class UptimeFeedCommand extends Command
 
     protected function processFeeds($board, $feeds)
     {
-        # $indicators = new Collection();
         foreach ($feeds as $feed) {
             $uptimefeed = new UptimeFeed($feed->apikey);
             $snapshotData = $uptimefeed->run()->snapshot();
-            # $indicators->push();
 
             $snapshot = Snapshot::updateOrCreate([
                 'board_id'  => $board->id,
                 'aspect_id' => Aspect::whereName('uptime')->first()->id,
                 'hash'      => md5("{$feed->name}/{$feed->apikey}"),
                 ], [
-
                 'timestamp' => Carbon::now(),
                 'target'    => $feed->name,
                 'data'      => json_encode($snapshotData),
                 ]);
         }
-
-        # $aggregator = new UptimeAggregator($snapshots);
-        # var_dump($aggregator->summarize()->snapshot());
     }
 }

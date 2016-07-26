@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Condor\Factors\Uptime;
+namespace App\Condor\Aspects\Uptime;
 
 use Alariva\UptimeRobot\UptimeRobot;
 

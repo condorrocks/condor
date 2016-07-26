@@ -3,7 +3,7 @@
 namespace App\Condor\Panels;
 
 use App\Aspect;
-use App\Condor\Factors\Uptime\UptimeAggregator;
+use App\Condor\Aspects\Uptime\UptimeAggregator;
 use Illuminate\Support\Collection;
 
 class Panel
