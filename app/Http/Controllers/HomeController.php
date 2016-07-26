@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Condor\Panels\PanelsBuilder;
+use App\Condor\Panels\Panels;
 use Illuminate\Support\Collection;
 
 class HomeController extends Controller
@@ -28,7 +28,7 @@ class HomeController extends Controller
         
         $panels = [];
         foreach ($accounts as $account) {
-            $panels[] = with(new PanelsBuilder($account->boards))->get();
+            $panels[] = with(new Panels($account->boards))->get();
         }
 
         $panels = collect($panels)->collapse();

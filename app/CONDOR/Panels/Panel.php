@@ -6,7 +6,7 @@ use App\Aspect;
 use App\Condor\Factors\Uptime\UptimeAggregator;
 use Illuminate\Support\Collection;
 
-class PanelBuilder
+class Panel
 {
     private $panel;
 
@@ -21,9 +21,8 @@ class PanelBuilder
 
         $aspects = $this->panel->snapshots->groupBy('aspect_id');
 
-        $summary = new Collection;
+        $summary = new Collection();
         foreach ($aspects as $aspect_id => $snapshots) {
-
             $aspect = Aspect::find($aspect_id)->first();
 
             $summary->put($aspect->name, $this->summarizeSnapshots($aspect_id, $snapshots));

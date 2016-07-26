@@ -2,9 +2,9 @@
 
 namespace App\Condor\Panels;
 
-use App\Condor\Panels\PanelBuilder;
+use App\Condor\Panels\Panel;
 
-class PanelsBuilder
+class Panels
 {
     private $boards;
 
@@ -17,7 +17,7 @@ class PanelsBuilder
     {
         $panels = [];
         foreach ($this->boards as $board) {
-            $panels[] = with(new PanelBuilder($board))->get();
+            $panels[] = with(new Panel($board))->get();
         }
 
         return $panels;
