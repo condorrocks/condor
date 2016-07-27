@@ -9,7 +9,7 @@ use App\Snapshot;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 
-class SSLCertificateCommand extends Command
+class SSLCertificateFeedCommand extends Command
 {
     /**
      * The name and signature of the console command.
