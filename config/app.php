@@ -161,6 +161,7 @@ return [
          * Support Service Providers...
          */
         Jenssegers\Agent\AgentServiceProvider::class,
+        EricMakesStuff\ServerMonitor\ServerMonitorServiceProvider::class,
 
     ],
 

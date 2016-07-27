@@ -3,6 +3,7 @@
 namespace App\Condor\Panels;
 
 use App\Aspect;
+use App\Condor\Aspects\SSLCertificate\SSLCertificateAggregator;
 use App\Condor\Aspects\Uptime\UptimeAggregator;
 use Illuminate\Support\Collection;
 
@@ -23,7 +24,7 @@ class Panel
 
         $summary = new Collection();
         foreach ($aspects as $aspect_id => $snapshots) {
-            $aspect = Aspect::find($aspect_id)->first();
+            $aspect = Aspect::find($aspect_id);
 
             $summary->put($aspect->name, $this->summarizeSnapshots($aspect_id, $snapshots));
         }
@@ -35,7 +36,10 @@ class Panel
     {
         switch ($aspect_id) {
             case 1:
-                return with(new UptimeAggregator($this->panel->snapshots))->summarize()->snapshot();
+                return with(new UptimeAggregator($snapshots))->summarize()->snapshot();
+                break;
+            case 2:
+                return with(new SSLCertificateAggregator($snapshots))->summarize()->snapshot();
                 break;
             default:
                 return;

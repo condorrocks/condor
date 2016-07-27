@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         \App\Console\Commands\UptimeFeedCommand::class,
+        \App\Console\Commands\SSLCertificateFeedCommand::class,
     ];
 
     /**

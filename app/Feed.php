@@ -12,7 +12,7 @@ class Feed extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'apikey', 'aspect_id',
+        'name', 'apikey', 'aspect_id', 'params'
     ];
 
     public function boards()
@@ -23,5 +23,10 @@ class Feed extends Model
     public function aspect()
     {
         return $this->belongsTo(Aspect::class);
+    }
+
+    public function scopeForAspect($query, $aspectId)
+    {
+        return $query->where('aspect_id', $aspectId);
     }
 }
