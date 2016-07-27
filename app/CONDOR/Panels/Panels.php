@@ -2,8 +2,6 @@
 
 namespace App\Condor\Panels;
 
-use App\Condor\Panels\Panel;
-
 class Panels
 {
     private $boards;

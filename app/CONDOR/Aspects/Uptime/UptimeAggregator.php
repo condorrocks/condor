@@ -17,6 +17,7 @@ class UptimeAggregator
     {
         $this->online = $this->snapshots->reduce(function ($carry, $item) {
             $data = json_decode($item->data);
+
             return ($data->status == 2) && $carry;
         }, true);
 
