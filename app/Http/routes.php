@@ -30,6 +30,38 @@ Route::group(['middleware' => 'web'], function () {
 
     });
 
+    Route::group(['prefix' => 'boards', 'namespace' => 'Manage'], function () {
+
+        Route::get('', [
+            'as'   => 'manage.boards.index',
+            'uses' => 'BoardController@index',
+        ]);
+        Route::get('create', [
+            'as'   => 'manage.boards.create',
+            'uses' => 'BoardController@create',
+        ]);
+        Route::post('', [
+            'as'   => 'manage.boards.store',
+            'uses' => 'BoardController@store',
+        ]);
+        Route::get('{board}', [
+            'as'   => 'manage.boards.show',
+            'uses' => 'BoardController@show',
+        ]);
+        Route::get('{board}/edit', [
+            'as'   => 'manage.boards.edit',
+            'uses' => 'BoardController@edit',
+        ]);
+        Route::put('{board}', [
+            'as'   => 'manage.boards.update',
+            'uses' => 'BoardController@update',
+        ]);
+        Route::delete('{board}', [
+            'as'   => 'manage.boards.destroy',
+            'uses' => 'BoardController@destroy',
+        ]);
+    });
+
 });
 
 ///////////////////////

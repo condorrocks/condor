@@ -28,4 +28,12 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Account::class);
     }
+
+    public function boards()
+    {
+        return $this->hasManyThrough(
+            Board::class, Account::class,
+            'id', 'id'
+        );
+    }
 }

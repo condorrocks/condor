@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bc1ca6de0fe577f0409396210cff817c",
-    "content-hash": "49bb5fcbcf51515a15999638c997bdd1",
+    "hash": "4c3eba9a2455391a56518e222d4dedd1",
+    "content-hash": "027fa5410f43af3d788238fddbb4f2b6",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -387,6 +387,53 @@
                 "uri"
             ],
             "time": "2016-06-24 23:00:38"
+        },
+        {
+            "name": "illuminate/html",
+            "version": "v5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/illuminate/html.git",
+                "reference": "3d1009bb8e0f25720c914af5c1f4015dd373c9ef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/illuminate/html/zipball/3d1009bb8e0f25720c914af5c1f4015dd373c9ef",
+                "reference": "3d1009bb8e0f25720c914af5c1f4015dd373c9ef",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "~5.0",
+                "illuminate/session": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Illuminate\\Html\\": ""
+                },
+                "files": [
+                    "helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                }
+            ],
+            "abandoned": "laravelcollective/html",
+            "time": "2015-01-01 16:31:18"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -1124,6 +1171,66 @@
                 "random"
             ],
             "time": "2016-03-18 20:34:03"
+        },
+        {
+            "name": "patricktalmadge/bootstrapper",
+            "version": "5.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/patricktalmadge/bootstrapper.git",
+                "reference": "49b29264299d3792d307dc82220ca472fac5afc2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/patricktalmadge/bootstrapper/zipball/49b29264299d3792d307dc82220ca472fac5afc2",
+                "reference": "49b29264299d3792d307dc82220ca472fac5afc2",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "~4.2||~5",
+                "illuminate/html": "~4.2||~5",
+                "illuminate/routing": "~4.2||~5",
+                "illuminate/support": "~4.2||~5",
+                "php": ">=5.4.0",
+                "twbs/bootstrap": "~3"
+            },
+            "require-dev": {
+                "akeneo/phpspec-skip-example-extension": "~1.1",
+                "mockery/mockery": "~0.9",
+                "phpspec/phpspec": "~2",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Bootstrapper\\": "src\\Bootstrapper",
+                    "DummyClasses\\": "tests\\DummyClasses"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maxime Fabre",
+                    "email": "ehtnam6@gmail.com"
+                },
+                {
+                    "name": "Patrick Talmadge",
+                    "email": "ptalmadge@gmail.com"
+                },
+                {
+                    "name": "Patrick Rose",
+                    "email": "pjr0911025@gmail.com"
+                }
+            ],
+            "description": "Twitter Bootstrap markup generator",
+            "keywords": [
+                "bootstrap",
+                "laravel"
+            ],
+            "time": "2015-11-28 16:59:03"
         },
         {
             "name": "psr/http-message",
@@ -2115,6 +2222,57 @@
                 "dump"
             ],
             "time": "2016-06-29 05:40:00"
+        },
+        {
+            "name": "twbs/bootstrap",
+            "version": "v3.3.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twbs/bootstrap.git",
+                "reference": "0b9c4a4007c44201dce9a6cc1a38407005c26c86"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/0b9c4a4007c44201dce9a6cc1a38407005c26c86",
+                "reference": "0b9c4a4007c44201dce9a6cc1a38407005c26c86",
+                "shasum": ""
+            },
+            "replace": {
+                "twitter/bootstrap": "self.version"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.3.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jacob Thornton",
+                    "email": "jacobthornton@gmail.com"
+                },
+                {
+                    "name": "Mark Otto",
+                    "email": "markdotto@gmail.com"
+                }
+            ],
+            "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+            "homepage": "http://getbootstrap.com",
+            "keywords": [
+                "JS",
+                "css",
+                "framework",
+                "front-end",
+                "less",
+                "mobile-first",
+                "responsive",
+                "web"
+            ],
+            "time": "2016-07-25 15:51:55"
         },
         {
             "name": "vlucas/phpdotenv",

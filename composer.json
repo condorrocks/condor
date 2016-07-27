@@ -8,6 +8,7 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
         "jenssegers/agent": "^2.3",
+        "patricktalmadge/bootstrapper": "~5",
         "ericmakesstuff/laravel-server-monitor": "^1.2"
     },
     "require-dev": {
