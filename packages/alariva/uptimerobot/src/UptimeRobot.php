@@ -39,7 +39,7 @@ class UptimeRobot
     public function getApiKey()
     {
         if (empty(static::$apiKey)) {
-            throw new Exception('Value not specified: apiKey', 1);
+            throw new \Exception('Value not specified: apiKey', 1);
         }
 
         return static::$apiKey;
@@ -61,11 +61,11 @@ class UptimeRobot
     public function setFormat($format)
     {
         if (empty($format)) {
-            throw new Exception('Value not specified: format', 1);
+            throw new \Exception('Value not specified: format', 1);
         }
 
         if (($format != 'xml' && $format != 'json')) {
-            throw new Exception('Format not valid: format', 1);
+            throw new \Exception('Format not valid: format', 1);
         }
 
         $this->format = $format;
@@ -79,7 +79,7 @@ class UptimeRobot
     private function __fetch($url)
     {
         if (empty($url)) {
-            throw new Exception('Value not specified: url', 1);
+            throw new \Exception('Value not specified: url', 1);
         }
 
         if (preg_match("#\?#", $url)) {
@@ -176,7 +176,7 @@ class UptimeRobot
     public function newMonitor($friendlyName, $URL, $type, $subType = null, $port = null, $keywordType = null, $keywordValue = null, $HTTPUsername = null, $HTTPPassword = null, $alertContacts = null, $monitorInterval = 5)
     {
         if (empty($friendlyName) || empty($URL) || empty($type)) {
-            throw new Exception('Required key "name", "uri" or "type" not specified', 3);
+            throw new \Exception('Required key "name", "uri" or "type" not specified', 3);
         }
 
         $friendlyName = urlencode($friendlyName);
@@ -275,7 +275,7 @@ class UptimeRobot
     public function deleteMonitor($monitorId)
     {
         if (empty($monitorId)) {
-            throw new Exception('Value not specified: monitorId', 1);
+            throw new \Exception('Value not specified: monitorId', 1);
         }
 
         $url = $this->base_uri.'/deleteMonitor?monitorID='.$monitorId;
@@ -309,7 +309,7 @@ class UptimeRobot
     public function newAlertContact($alertContactType, $alertContactValue)
     {
         if (empty($alertContactType) || empty($alertContactValue)) {
-            throw new Exception('Required params "$alertContactValue" or "$alertContactValue" not specified', 3);
+            throw new \Exception('Required params "$alertContactValue" or "$alertContactValue" not specified', 3);
         }
 
         $alertContactValue = urlencode($alertContactValue);
@@ -327,7 +327,7 @@ class UptimeRobot
     public function deleteAlertContact($alertContactID)
     {
         if (empty($alertContactID)) {
-            throw new Exception('Required params "$alertContactID" not specified', 3);
+            throw new \Exception('Required params "$alertContactID" not specified', 3);
         }
 
         $url = $this->base_uri.'/deleteAlertContact?alertContactID='.$alertContactID;

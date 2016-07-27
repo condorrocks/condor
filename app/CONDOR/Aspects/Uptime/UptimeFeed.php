@@ -30,7 +30,7 @@ class UptimeFeed
          */
         try {
             $this->feed = $this->feed->getMonitors(0000);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             echo $e->getMessage();
         }
 
