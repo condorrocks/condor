@@ -24,6 +24,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected $with = ['accounts'];
+
     public function accounts()
     {
         return $this->belongsToMany(Account::class);

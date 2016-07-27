@@ -17,7 +17,7 @@ class BoardController extends Controller
     {
         logger()->info(__METHOD__);
 
-        // $this->authorize('manageBoards');
+        // $this->authorize('manage');
 
         // BEGIN
         $accounts = auth()->user()->accounts()->with('boards')->get();
@@ -89,7 +89,7 @@ class BoardController extends Controller
         logger()->info(__METHOD__);
         logger()->info(sprintf('boardId:%s', $board->id));
 
-        // $this->authorize('manageBoards', $board);
+        $this->authorize('manage', $board);
 
         // BEGIN
 
@@ -108,7 +108,7 @@ class BoardController extends Controller
         logger()->info(__METHOD__);
         logger()->info(sprintf('board:%s', $board->id));
 
-        // $this->authorize('manageBoards', $board);
+        $this->authorize('manage', $board);
 
         // BEGIN
 
@@ -129,7 +129,7 @@ class BoardController extends Controller
         logger()->info(__METHOD__);
         logger()->info(sprintf('boardId:%s', $board->id));
 
-        // $this->authorize('manageBoards', $board);
+        $this->authorize('manage', $board);
 
         // BEGIN
 
@@ -156,7 +156,7 @@ class BoardController extends Controller
         logger()->info(__METHOD__);
         logger()->info(sprintf('boardId:%s', $board->id));
 
-        // $this->authorize('manageBoards', $board);
+        $this->authorize('manage', $board);
 
         // BEGIN
 
