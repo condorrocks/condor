@@ -19,6 +19,19 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
+Route::group(['middleware' => 'web'], function () {
+
+    Route::group(['prefix' => 'accounts', 'namespace' => 'Manage'], function () {
+
+        Route::get('', [
+            'as'   => 'manage.accounts.index',
+            'uses' => 'AccountController@index',
+        ]);
+
+    });
+
+});
+
 ///////////////////////
 // LANGUAGE SWITCHER //
 ///////////////////////
