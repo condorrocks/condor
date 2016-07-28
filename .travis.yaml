@@ -1,0 +1,20 @@
+language: php
+
+php:
+  - 5.6
+
+install:
+  - composer self-update
+
+before_script:
+  - mv .env.travis .env
+  - mv travis.phpunit.xml phpunit.xml
+  - mysql -e 'create database test_condor;'
+  - composer install --dev --no-interaction
+  - php artisan config:clear
+  - php artisan migrate
+  - php artisan db:seed
+  - php artisan config:cache
+
+after_success:
+  - ./travis-codeclimate-report.sh
