@@ -11,6 +11,7 @@ before_script:
   - mv travis.phpunit.xml phpunit.xml
   - mysql -e 'create database test_condor;'
   - composer install --dev --no-interaction
+  - php artisan key:generate
   - php artisan config:clear
   - php artisan migrate
   - php artisan db:seed
