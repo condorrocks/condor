@@ -4,7 +4,7 @@
             {!! Form::select('account_id', $accounts, [
                 'required',
                 'class'=>'form-control',
-                'placeholder'=> trans('manage.boards.account.label')
+                'placeholder'=> trans('manage.board.label.account')
                 ]) !!}
         </div>
     </div>
@@ -14,7 +14,7 @@
             {!! Form::text('name', null, [
                 'required',
                 'class'=>'form-control',
-                'placeholder'=> trans('manage.boards.name.label')
+                'placeholder'=> trans('manage.board.label.name')
                 ]) !!}
         </div>
     </div>

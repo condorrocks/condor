@@ -7,12 +7,12 @@
         <div class="panel panel-default">
 
             <div class="panel-heading">
-                {{ trans('manage.board.create.title') }}
+                {{ trans('manage.board.title.create') }}
             </div>
 
             <div class="panel-body">
                 {!! Form::model($board, ['method' => 'POST', 'route' => ['manage.boards.store']]) !!}
-                    @include('manage.boards._form', ['submitLabel' => trans('manage.boards.btn.create')])
+                    @include('manage.boards._form', ['submitLabel' => trans('manage.board.btn.create')])
                 {!! Form::close() !!}
             </div>
 

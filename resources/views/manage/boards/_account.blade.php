@@ -2,28 +2,23 @@
 <div class="panel panel-default">
 
     <div class="panel-heading">
-        {{ $board->name }}
+        <i class="fa fa-btn fa-columns"></i>&nbsp;{{ $account->name }}/{{ $board->name }}
     </div>
     
     <div class="panel-body">
-        {!! Button::normal()
-            ->withIcon(Icon::edit())
-            ->asLinkTo(route('manage.boards.edit', compact('board')) )
+        {!! Button::primary(trans('manage.board.btn.show'))
+            ->withIcon(Icon::eyeOpen())
+            ->asLinkTo(route('manage.boards.show', compact('board')) )
             ->block() !!}
 
-        <br/>
-
-        {!! Form::open(['method' => 'POST', 'route' => ['manage.boards.destroy', $board]]) !!}
-            <input type="hidden" name="_method" value="DELETE">
-            {!! Button::danger()->withIcon(Icon::trash())
-                                ->withAttributes(['type' => 'button'])
-                                ->submit()
-                                ->block() !!}
-        {!! Form::close() !!}
+        {!! Button::normal(trans('manage.board.btn.edit'))
+                ->withIcon(Icon::edit())
+                ->asLinkTo(route('manage.boards.edit', compact('board')) )
+                ->block() !!}
     </div>
 
     <div class="panel-footer">
-        {{ $account->name }}
+        {{ trans('manage.board.feeds_count', ['count' => $board->feeds()->count()] ) }}
     </div>
 
 </div>

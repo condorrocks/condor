@@ -9,6 +9,11 @@
 
         @each('manage.boards._account', $accounts, 'account')
 
+        {!! Button::primary(trans('manage.board.btn.add'))
+            ->withIcon(Icon::plus())
+            ->asLinkTo(route('manage.boards.create') )
+            ->block() !!}
+
     </div>
 </div>
 @endsection
