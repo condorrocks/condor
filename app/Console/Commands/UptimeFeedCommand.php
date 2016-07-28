@@ -33,8 +33,6 @@ class UptimeFeedCommand extends Command
     public function __construct()
     {
         parent::__construct();
-
-        $this->init();
     }
 
     protected function init()
@@ -49,6 +47,8 @@ class UptimeFeedCommand extends Command
      */
     public function handle()
     {
+        $this->init();
+
         $boards = Board::all();
 
         $this->processBoards($boards);
