@@ -26,5 +26,9 @@ class AppServiceProvider extends ServiceProvider
         if ($this->app->environment() == 'local') {
             $this->app->register(\Barryvdh\Debugbar\ServiceProvider::class);
         }
+
+        if (config('services.rollbar.access_token', false)) {
+            $this->app->register(\Jenssegers\Rollbar\RollbarServiceProvider::class);
+        }
     }
 }
