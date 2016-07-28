@@ -50,6 +50,18 @@
                     <li><a href="{{ url('/home') }}">{{ trans('nav.home') }}</a></li>
                 </ul>
 
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{ trans('nav.manage') }} <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('/boards') }}"><i class="fa fa-btn fa-columns"></i>{{ trans('nav.boards') }}</a></li>
+                            </ul>
+                    </li>
+                </ul>
+
                 @include('_navi18n')
 
                 <!-- Right Side Of Navbar -->

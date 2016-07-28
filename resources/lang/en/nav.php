@@ -2,6 +2,8 @@
 
 return [
 
-    'home' => 'Home',
+    'home'   => 'Home',
+    'manage' => 'Manage',
+    'boards' => 'Boards',
 
 ];
