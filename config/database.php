@@ -66,6 +66,18 @@ return [
             'engine' => null,
         ],
 
+        'testing' => [
+            'driver'    => 'mysql',
+            'host'      => env('TEST_DB_HOST', 'localhost'),
+            'database'  => env('TEST_DB_DATABASE', 'testing_condor'),
+            'username'  => env('TEST_DB_USERNAME', 'testing_condor'),
+            'password'  => env('TEST_DB_PASSWORD', 'testing_condor'),
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+            'strict'    => false,
+        ],
+
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', 'localhost'),
