@@ -31,3 +31,12 @@ $factory->define(App\Aspect::class, function (Faker\Generator $faker) {
         'name' => $faker->name,
     ];
 });
+
+$factory->define(App\Feed::class, function (Faker\Generator $faker) {
+    return [
+        'name'      => $faker->name,
+        'apikey'    => md5($faker->name),
+        'params'    => json_encode(['param1' => 'value1', 'param2' => 'value2']),
+        'aspect_id' => factory(App\Aspect::class)->create()->id,
+    ];
+});
