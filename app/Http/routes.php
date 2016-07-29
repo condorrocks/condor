@@ -62,6 +62,29 @@ Route::group(['middleware' => ['web', 'auth']], function () {
         ]);
     });
 
+    Route::group(['prefix' => 'feeds', 'namespace' => 'Manage'], function () {
+
+        Route::get('create/board/{board}', [
+            'as'   => 'manage.feeds.create',
+            'uses' => 'FeedController@create',
+        ]);
+        Route::post('', [
+            'as'   => 'manage.feeds.store',
+            'uses' => 'FeedController@store',
+        ]);
+        Route::get('{feed}/edit/board/{board}', [
+            'as'   => 'manage.feeds.edit',
+            'uses' => 'FeedController@edit',
+        ]);
+        Route::put('{feed}', [
+            'as'   => 'manage.feeds.update',
+            'uses' => 'FeedController@update',
+        ]);
+        Route::delete('{feed}/board/{board}', [
+            'as'   => 'manage.feeds.destroy',
+            'uses' => 'FeedController@destroy',
+        ]);
+    });
 });
 
 ///////////////////////

@@ -14,12 +14,14 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         \App\Board::class => \App\Policies\BoardPolicy::class,
+        \App\Feed::class  => \App\Policies\FeedPolicy::class,
     ];
 
     /**
      * Register any application authentication / authorization services.
      *
      * @param  \Illuminate\Contracts\Auth\Access\Gate  $gate
+     *
      * @return void
      */
     public function boot(GateContract $gate)

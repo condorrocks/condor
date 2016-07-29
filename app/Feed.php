@@ -29,4 +29,14 @@ class Feed extends Model
     {
         return $query->where('aspect_id', $aspectId);
     }
+
+    /**
+     * Set Params.
+     *
+     * @param string $params
+     */
+    public function setParamsAttribute($params)
+    {
+        $this->attributes['params'] = trim($params) ?: null;
+    }
 }

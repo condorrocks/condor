@@ -22,4 +22,26 @@ return [
         'feeds_count' => ':count feeds',
     ],
 
+    'feed' => [
+        'btn' => [
+            'show'   => 'Show Feed',
+            'add'    => 'Add Feed',
+            'create' => 'Create Feed',
+            'edit'   => 'Edit Feed',
+            'update' => 'Update Feed',
+            'remove' => 'Remove Feed',
+        ],
+        'title' => [
+            'create' => 'Create feed',
+            'edit'   => 'Edit feed',
+        ],
+        'label' => [
+            'name'    => 'Feed name',
+            'apikey'  => 'API Key',
+            'params'  => 'Parameters',
+            'account' => 'Account',
+        ],
+    ],
+
+
 ];
