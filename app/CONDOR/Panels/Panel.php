@@ -3,9 +3,8 @@
 namespace App\Condor\Panels;
 
 use App\Aspect;
-use App\Condor\Aspects\SSLCertificate\SSLCertificateAggregator;
-use App\Condor\Aspects\Uptime\UptimeAggregator;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cache;
 
 class Panel
 {
@@ -23,27 +22,33 @@ class Panel
         $aspects = $this->panel->snapshots->groupBy('aspect_id');
 
         $summary = new Collection();
-        foreach ($aspects as $aspect_id => $snapshots) {
-            $aspect = Aspect::find($aspect_id);
+        foreach ($aspects as $aspectId => $snapshots) {
+            $aspect = $this->getAspect($aspectId);
 
-            $summary->put($aspect->name, $this->summarizeSnapshots($aspect_id, $snapshots));
+            $summary->put($aspect->name, $this->summarizeSnapshots($aspect, $snapshots));
         }
 
         return compact('name', 'summary');
     }
 
-    protected function summarizeSnapshots($aspect_id, $snapshots)
+    protected function summarizeSnapshots(Aspect $aspect, $snapshots)
     {
-        switch ($aspect_id) {
-            case 1:
-                return with(new UptimeAggregator($snapshots))->summarize()->snapshot();
-                break;
-            case 2:
-                return with(new SSLCertificateAggregator($snapshots))->summarize()->snapshot();
-                break;
-            default:
-                return;
-                break;
-        }
+        $aggregatorClassName = config("aggregators.{$aspect->name}");
+
+        return with(new $aggregatorClassName($snapshots))->summarize()->snapshot();
+    }
+
+    /**
+     * Get a cached instance of Aspect
+     *
+     * @param  int $aspectId
+     *
+     * @return App\Aspect|null
+     */
+    protected function getAspect($aspectId)
+    {
+        return Cache::get("aspectId:{$aspectId}", function () use ($aspectId) {
+            return Aspect::find($aspectId);
+        });
     }
 }
