@@ -40,3 +40,9 @@ $factory->define(App\Feed::class, function (Faker\Generator $faker) {
         'aspect_id' => factory(App\Aspect::class)->create()->id,
     ];
 });
+
+$factory->define(App\Board::class, function (Faker\Generator $faker) {
+    return [
+        'name'      => $faker->name,
+    ];
+});
