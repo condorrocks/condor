@@ -10,6 +10,7 @@ return [
             'edit'   => 'Edit',
             'update' => 'Update',
             'remove' => 'Remove',
+            'purge'  => 'Purge Snapshots',
         ],
         'title' => [
             'create' => 'Create board',
