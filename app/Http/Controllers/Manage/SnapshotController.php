@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Manage;
 
 use App\Board;
 use App\Http\Controllers\Controller;
-use App\Jobs\ClearSnapshots;
+use App\Jobs\PurgeSnapshots;
 use Illuminate\Http\Request;
 
 class SnapshotController extends Controller
@@ -25,7 +25,7 @@ class SnapshotController extends Controller
 
         // BEGIN
 
-        $this->dispatch(new ClearSnapshots($board));
+        $this->dispatch(new PurgeSnapshots($board));
 
         return view('manage.boards.show', compact('board'));
     }

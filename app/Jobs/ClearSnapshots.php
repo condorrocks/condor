@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
-class ClearSnapshots extends Job implements ShouldQueue
+class PurgeSnapshots extends Job implements ShouldQueue
 {
     use InteractsWithQueue, SerializesModels;
 

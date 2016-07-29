@@ -1,9 +1,9 @@
 <?php
 
-use App\Jobs\ClearSnapshots;
+use App\Jobs\PurgeSnapshots;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class ClearSnapshotsTest extends TestCase
+class PurgeSnapshotsTest extends TestCase
 {
     use DatabaseTransactions;
     use CreateBoard, CreateSnapshot;
@@ -22,7 +22,7 @@ class ClearSnapshotsTest extends TestCase
         $this->seeInDatabase('snapshots', ['target' => $snapshot1->target]);
         $this->seeInDatabase('snapshots', ['target' => $snapshot2->target]);
 
-        dispatch(new ClearSnapshots($board));
+        dispatch(new PurgeSnapshots($board));
 
         $this->dontSeeInDatabase('snapshots', ['target' => $snapshot1->target]);
         $this->dontSeeInDatabase('snapshots', ['target' => $snapshot2->target]);
