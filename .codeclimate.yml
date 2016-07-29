@@ -1,0 +1,36 @@
+---
+engines:
+  csslint:
+    enabled: true
+  eslint:
+    enabled: true
+  fixme:
+    enabled: true
+  phpcodesniffer:
+    enabled: true
+  phpmd:
+    enabled: true
+    # ... CONFIG CONTENT ...
+    checks:
+      Naming/ShortMethodName:
+        enabled: false
+ratings:
+  paths:
+  - "**.css"
+  - "**.js"
+  - "**.jsx"
+  - "**.php"
+  - "**.module"
+  - "**.inc"
+exclude_paths:
+- config/**/*
+- tests/**/*
+- vendor/**/*
+- public/**/*
+- database/migrations/*
+- database/seeds/*
+languages:
+   Ruby: false
+   JavaScript: true
+   Python: false
+   PHP: true
