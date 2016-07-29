@@ -25,3 +25,9 @@ $factory->define(App\Account::class, function (Faker\Generator $faker) {
         'name' => $faker->name,
     ];
 });
+
+$factory->define(App\Aspect::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+    ];
+});
