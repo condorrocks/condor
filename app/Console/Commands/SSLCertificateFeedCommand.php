@@ -52,6 +52,8 @@ class SSLCertificateFeedCommand extends Command
 
         $boards = Board::all();
 
+        $this->info('Feeding sslcertificate...');
+
         $this->processBoards($boards);
     }
 

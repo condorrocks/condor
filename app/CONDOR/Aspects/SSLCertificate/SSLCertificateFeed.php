@@ -24,7 +24,7 @@ class SSLCertificateFeed
     {
         $url = $this->params->url;
 
-        $monitor = new SSLCertificateMonitor([
+        $monitor = app()->make('SSLCertificateMonitor', [
             'url' => $url,
         ]);
 

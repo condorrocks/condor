@@ -26,5 +26,9 @@ class FeedsServiceProvider extends ServiceProvider
         $this->app->bind('UptimeRobot', function ($app) {
             return new \Alariva\UptimeRobot\UptimeRobot();
         });
+
+        $this->app->bind('SSLCertificateMonitor', function ($app) {
+            return new EricMakesStuff\ServerMonitor\Monitors\SSLCertificateMonitor();
+        });
     }
 }
