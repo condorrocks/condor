@@ -46,3 +46,14 @@ $factory->define(App\Board::class, function (Faker\Generator $faker) {
         'name'      => $faker->name,
     ];
 });
+
+$factory->define(App\Snapshot::class, function (Faker\Generator $faker) {
+    return [
+        'target'      => $faker->name,
+        'board_id'    => factory(App\Board::class)->create()->id,
+        'aspect_id'   => factory(App\Aspect::class)->create()->id,
+        'hash'        => $faker->name,
+        'timestamp'   => Carbon\Carbon::parse(date('Y-m-d 08:00:00', strtotime('today +2 days'))),
+        'data'        => json_encode(['indicator1' => 'value1', 'indicator2' => 'value2']),
+    ];
+});
