@@ -16,8 +16,6 @@ trait CreateUser
 
     private function makeUser()
     {
-        $user = factory(User::class)->make();
-
-        return $user;
+        return factory(User::class)->make();
     }
 }
