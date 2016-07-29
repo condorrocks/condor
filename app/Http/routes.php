@@ -60,6 +60,10 @@ Route::group(['middleware' => ['web', 'auth']], function () {
             'as'   => 'manage.boards.destroy',
             'uses' => 'BoardController@destroy',
         ]);
+        Route::get('{board}/purge', [
+            'as'   => 'manage.boards.purge',
+            'uses' => 'SnapshotController@purge',
+        ]);
     });
 
     Route::group(['prefix' => 'feeds', 'namespace' => 'Manage'], function () {

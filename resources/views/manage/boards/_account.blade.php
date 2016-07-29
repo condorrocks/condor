@@ -15,6 +15,11 @@
                 ->withIcon(Icon::edit())
                 ->asLinkTo(route('manage.boards.edit', compact('board')) )
                 ->block() !!}
+
+        {!! Button::normal(trans('manage.board.btn.purge'))
+                ->withIcon(Icon::erase())
+                ->asLinkTo(route('manage.boards.purge', compact('board')) )
+                ->block() !!}
     </div>
 
     <div class="panel-footer">
