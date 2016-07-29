@@ -51,6 +51,8 @@ class UptimeFeedCommand extends Command
 
         $boards = Board::all();
 
+        $this->info('Feeding uptime...');
+
         $this->processBoards($boards);
     }
 

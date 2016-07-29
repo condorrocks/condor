@@ -17,8 +17,8 @@ namespace Alariva\UptimeRobot;
 class UptimeRobot
 {
     private $base_uri = 'https://api.uptimerobot.com';
-    private static $apiKey;
-    private static $noJsonCallback;
+    private $apiKey;
+    private $noJsonCallback;
     private $format = 'json';
 
     /**
@@ -27,10 +27,10 @@ class UptimeRobot
      * @param string $key               require   Set your main API Key or Monitor-Specific API Keys (only getMonitors)
      * @param bool   $noJsonCallback    optional  Define if the function wrapper to be removed
      */
-    public static function configure($key, $noJsonCallback = 1)
+    public function configure($key, $noJsonCallback = 1)
     {
-        static::$apiKey = $key;
-        static::$noJsonCallback = $noJsonCallback;
+        $this->apiKey = $key;
+        $this->noJsonCallback = $noJsonCallback;
     }
 
     /**
@@ -38,11 +38,11 @@ class UptimeRobot
      */
     public function getApiKey()
     {
-        if (empty(static::$apiKey)) {
+        if (empty($this->apiKey)) {
             throw new \Exception('Value not specified: apiKey', 1);
         }
 
-        return static::$apiKey;
+        return $this->apiKey;
     }
 
     /**
@@ -89,7 +89,7 @@ class UptimeRobot
         }
 
         $url .= '&format='.$this->format;
-        $url .= '&noJsonCallback='.static::$noJsonCallback;
+        $url .= '&noJsonCallback='.$this->noJsonCallback;
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
@@ -101,7 +101,7 @@ class UptimeRobot
         if ($this->format == 'xml') {
             return $file_contents;
         } else {
-            if (static::$noJsonCallback) {
+            if ($this->noJsonCallback) {
                 return json_decode($file_contents);
             } else {
                 return $file_contents;
@@ -128,6 +128,7 @@ class UptimeRobot
      */
     public function getMonitors($monitors = null, $customUptimeRatio = null, $logs = 0, $responseTimes = 0, $responseTimesAverage = 0, $alertContacts = 0, $showMonitorAlertContacts = 0, $showTimezone = 0, $search = '')
     {
+        dd('fail');
         $url = $this->base_uri.'/getMonitors';
 
         $url .= '?logs='.$logs.'&responseTimes='.$responseTimes.'&responseTimesAverage='.$responseTimesAverage.'&alertContacts='.$alertContacts.'&showMonitorAlertContacts='.$showMonitorAlertContacts.'&showTimezone='.$showTimezone;

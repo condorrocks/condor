@@ -23,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->register(\App\Providers\FeedsServiceProvider::class);
+
         if ($this->app->environment() == 'local') {
             $this->app->register(\Barryvdh\Debugbar\ServiceProvider::class);
         }

@@ -12,8 +12,8 @@ class UptimeFeed
 
     public function __construct($apikey)
     {
-        UptimeRobot::configure($apikey, 1);
-        $this->feed = new UptimeRobot();
+        $this->feed = app()->make('UptimeRobot');
+        $this->feed->configure($apikey, 1);
     }
 
     public function snapshot()
