@@ -12,10 +12,11 @@ before_script:
   - mysql -e 'create database test_condor;'
   - composer install --dev --no-interaction
   - php artisan key:generate
-  - php artisan config:clear
   - php artisan migrate
   - php artisan db:seed
   - php artisan config:cache
+  - php artisan route:cache
+  - php artisan optimize
 
 after_success:
   - ./travis-codeclimate-report.sh
