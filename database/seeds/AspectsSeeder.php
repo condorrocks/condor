@@ -13,5 +13,6 @@ class AspectsSeeder extends Seeder
     public function run()
     {
         Aspect::updateOrCreate(['name' => 'uptime']);
+        Aspect::updateOrCreate(['name' => 'sslcertificate']);
     }
 }
