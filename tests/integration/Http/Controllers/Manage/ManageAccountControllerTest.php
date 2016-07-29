@@ -9,13 +9,17 @@ class ManageAccountControllerTest extends TestCase
     use WithoutMiddleware;
     use CreateUser, CreateAccount;
 
-    protected $account;
-
+    /**
+     * @var App\User
+     */
     protected $user;
 
     /**
-     * @test
+     * @var App\Account
      */
+    protected $account;
+
+    /** @test */
     public function it_lists_user_accounts()
     {
         $this->scenario();

@@ -2,9 +2,7 @@
 
 class LanguageControllerTest extends TestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function it_switches_language_to_english_us()
     {
         $applocale = 'en';
@@ -15,9 +13,7 @@ class LanguageControllerTest extends TestCase
         $this->assertResponseStatus(302);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_switches_language_to_spanish_es()
     {
         $applocale = 'es';

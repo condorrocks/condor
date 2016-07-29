@@ -10,19 +10,32 @@ class HomeControllerTest extends TestCase
     use WithoutMiddleware;
     use CreateUser, CreateAccount, CreateBoard, CreateSnapshot;
 
+    /**
+     * @var App\User
+     */
     protected $user;
 
+    /**
+     * @var App\Account
+     */
     protected $account;
 
+    /**
+     * @var App\Board
+     */
     protected $board;
 
+    /**
+     * @var App\Snapshot
+     */
     protected $sslSnapshot;
 
+    /**
+     * @var App\Snapshot
+     */
     protected $uptimeSnapshot;
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_presents_the_dashboard()
     {
         $this->scenario();
