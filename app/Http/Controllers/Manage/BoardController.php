@@ -168,7 +168,7 @@ class BoardController extends Controller
 
         // flash()->success(trans('manager.services.msg.destroy.success'));
 
-        return redirect()->back();
+        return redirect()->route('manage.boards.index');
     }
 
     protected function listAccounts()
