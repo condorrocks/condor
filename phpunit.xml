@@ -30,6 +30,7 @@
         <env name="DB_DATABASE" value="testing_condor"/>
         <env name="DB_USERNAME" value="testing_condor"/>
         <env name="DB_PASSWORD" value="testing_condor"/>
+        <env name="MAIL_DRIVER" value="log"/>
         <env name="CACHE_DRIVER" value="array"/>
         <env name="SESSION_DRIVER" value="array"/>
         <env name="QUEUE_DRIVER" value="sync"/>
