@@ -31,6 +31,7 @@ class BoardPolicy
     public function manage(User $user, Board $board)
     {
         $intersect = $user->accounts->intersect($board->accounts);
+
         return $intersect->count() > 0;
     }
 }
