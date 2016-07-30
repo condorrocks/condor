@@ -49,21 +49,6 @@ class UptimeFeedCommandTest extends TestCase
         $this->assertRegExp('/Feeding uptime/', $this->commandTester->getDisplay());
     }
 
-    /**
-     * @test
-     * @UnexpectedValueException \Exception
-     */
-    public function it_runs_uptime_feeds_with_an_invalid_feed()
-    {
-        $this->board->feeds()->first()->update(['name' => 'test', 'apikey' => 'invalid']);
-        
-        $this->commandTester->execute([
-            'command' => $this->command->getName(),
-        ]);
-
-        $this->assertRegExp('/Feeding uptime/', $this->commandTester->getDisplay());
-    }
-
     protected function scenario()
     {
         $user = $this->createUser();
