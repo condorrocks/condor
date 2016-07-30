@@ -128,7 +128,6 @@ class UptimeRobot
      */
     public function getMonitors($monitors = null, $customUptimeRatio = null, $logs = 0, $responseTimes = 0, $responseTimesAverage = 0, $alertContacts = 0, $showMonitorAlertContacts = 0, $showTimezone = 0, $search = '')
     {
-        dd('fail');
         $url = $this->base_uri.'/getMonitors';
 
         $url .= '?logs='.$logs.'&responseTimes='.$responseTimes.'&responseTimesAverage='.$responseTimesAverage.'&alertContacts='.$alertContacts.'&showMonitorAlertContacts='.$showMonitorAlertContacts.'&showTimezone='.$showTimezone;
