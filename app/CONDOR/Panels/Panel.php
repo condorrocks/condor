@@ -35,7 +35,7 @@ class Panel
     {
         $aggregatorClassName = config("aggregators.{$aspect->name}");
 
-        return with(new $aggregatorClassName($snapshots))->summarize()->getSnapshot();
+        return with(new $aggregatorClassName($snapshots))->getSummary();
     }
 
     /**

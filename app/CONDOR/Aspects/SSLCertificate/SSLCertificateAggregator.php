@@ -4,18 +4,9 @@ namespace App\Condor\Aspects\SSLCertificate;
 
 use App\Condor\Aggregator;
 
-class SSLCertificateAggregator implements Aggregator
+class SSLCertificateAggregator extends Aggregator
 {
-    private $snapshot = null;
-
-    private $snapshots = null;
-
     protected $online = false;
-
-    public function __construct($snapshots)
-    {
-        $this->snapshots = $snapshots;
-    }
 
     public function summarize()
     {
@@ -28,18 +19,9 @@ class SSLCertificateAggregator implements Aggregator
         return $this;
     }
 
-    public function getSnapshot()
-    {
-        if ($this->snapshot === null) {
-            $this->summarize()->build();
-        }
-
-        return $this->snapshot;
-    }
-
     protected function build()
     {
-        $this->snapshot = [
+        $this->summary = [
             'label'     => $this->statusLabel($this->online),
             'online'    => $this->online,
             'snapshots' => $this->snapshots->toArray(),
