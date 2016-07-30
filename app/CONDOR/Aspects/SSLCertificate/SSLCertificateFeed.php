@@ -2,9 +2,10 @@
 
 namespace App\Condor\Aspects\SSLCertificate;
 
+use App\Condor\Feeder;
 use EricMakesStuff\ServerMonitor\Monitors\SSLCertificateMonitor;
 
-class SSLCertificateFeed
+class SSLCertificateFeed implements Feeder
 {
     private $feed;
 

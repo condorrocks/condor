@@ -3,8 +3,9 @@
 namespace App\Condor\Aspects\Uptime;
 
 use Alariva\UptimeRobot\UptimeRobot;
+use App\Condor\Feeder;
 
-class UptimeFeed
+class UptimeFeed implements Feeder
 {
     private $feed;
 
