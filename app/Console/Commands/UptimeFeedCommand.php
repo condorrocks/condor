@@ -81,7 +81,7 @@ class UptimeFeedCommand extends Command
                 continue;
             }
 
-            $snapshot = Snapshot::updateOrCreate([
+            Snapshot::updateOrCreate([
                 'board_id'  => $board->id,
                 'aspect_id' => $this->aspect_id,
                 'hash'      => md5("{$board->id}/{$this->aspect_id}/{$feed->name}/{$feed->apikey}"),
