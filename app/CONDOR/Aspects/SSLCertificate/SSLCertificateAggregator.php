@@ -2,7 +2,9 @@
 
 namespace App\Condor\Aspects\SSLCertificate;
 
-class SSLCertificateAggregator
+use App\Condor\Aggregator;
+
+class SSLCertificateAggregator implements Aggregator
 {
     private $snapshots;
 

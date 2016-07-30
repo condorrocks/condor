@@ -2,7 +2,9 @@
 
 namespace App\Condor\Aspects\Uptime;
 
-class UptimeAggregator
+use App\Condor\Aggregator;
+
+class UptimeAggregator implements Aggregator
 {
     private $snapshots;
 
