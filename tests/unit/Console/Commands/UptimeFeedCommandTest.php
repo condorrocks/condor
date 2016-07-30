@@ -15,11 +15,14 @@ class UptimeFeedCommandTest extends TestCase
 
     protected $commandTester;
 
+    /**
+     * @var App\Board
+     */
+    protected $board;
+
     public function setUp()
     {
         parent::setUp();
-
-        $this->mockAPI();
 
         $application = new ConsoleApplication();
 
@@ -37,6 +40,23 @@ class UptimeFeedCommandTest extends TestCase
     /** @test */
     public function it_runs_uptime_feeds()
     {
+        $this->mockAPI();
+
+        $this->commandTester->execute([
+            'command' => $this->command->getName(),
+        ]);
+
+        $this->assertRegExp('/Feeding uptime/', $this->commandTester->getDisplay());
+    }
+
+    /**
+     * @test
+     * @UnexpectedValueException \Exception
+     */
+    public function it_runs_uptime_feeds_with_an_invalid_feed()
+    {
+        $this->board->feeds()->first()->update(['name' => 'test', 'apikey' => 'invalid']);
+        
         $this->commandTester->execute([
             'command' => $this->command->getName(),
         ]);
@@ -52,9 +72,9 @@ class UptimeFeedCommandTest extends TestCase
 
         $user->accounts()->save($account);
 
-        $board = $this->createBoard();
+        $this->board = $this->createBoard();
 
-        $account->boards()->save($board);
+        $account->boards()->save($this->board);
 
         $aspect = Aspect::whereName('uptime')->first();
 
@@ -64,7 +84,7 @@ class UptimeFeedCommandTest extends TestCase
             'apikey'    => 'm000000000-000000000000000000000000', // Dummy API Key
             ]);
 
-        $board->feeds()->save($feed);
+        $this->board->feeds()->save($feed);
     }
 
     protected function mockAPI()
