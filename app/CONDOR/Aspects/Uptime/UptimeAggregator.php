@@ -6,8 +6,6 @@ use App\Condor\Aggregator;
 
 class UptimeAggregator extends Aggregator
 {
-    protected $online = false;
-
     public function summarize()
     {
         $this->online = $this->snapshots->reduce(function ($carry, $item) {
@@ -15,17 +13,6 @@ class UptimeAggregator extends Aggregator
 
             return ($data->status == 2) && $carry;
         }, true);
-
-        return $this;
-    }
-
-    protected function build()
-    {
-        $this->summary = [
-            'label'     => $this->statusLabel($this->online),
-            'online'    => $this->online,
-            'snapshots' => $this->snapshots->toArray(),
-            ];
 
         return $this;
     }
