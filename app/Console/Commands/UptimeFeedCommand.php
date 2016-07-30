@@ -75,7 +75,7 @@ class UptimeFeedCommand extends Command
 
             try {
                 $uptimefeed = new UptimeFeed($feed->apikey);
-                $snapshotData = $uptimefeed->run()->snapshot();
+                $snapshotData = $uptimefeed->run()->getSnapshot();
             } catch (\Exception $e) {
                 logger()->error($e->getMessage());
                 continue;

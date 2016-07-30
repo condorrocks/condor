@@ -6,5 +6,5 @@ interface Aggregator
 {
     public function summarize();
 
-    public function snapshot();
+    public function getSnapshot();
 }

@@ -17,7 +17,7 @@ class UptimeFeed implements Feeder
         $this->feed->configure($apikey, 1);
     }
 
-    public function snapshot()
+    public function getSnapshot()
     {
         return $this->snapshots->first();
     }

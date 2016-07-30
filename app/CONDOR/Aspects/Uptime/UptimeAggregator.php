@@ -26,7 +26,7 @@ class UptimeAggregator implements Aggregator
         return $this;
     }
 
-    public function snapshot()
+    public function getSnapshot()
     {
         return [
             'label'     => $this->statusLabel($this->online),

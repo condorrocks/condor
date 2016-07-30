@@ -16,7 +16,7 @@ class SSLCertificateFeed implements Feeder
         $this->params = json_decode($params);
     }
 
-    public function snapshot()
+    public function getSnapshot()
     {
         return $this->snapshot;
     }
