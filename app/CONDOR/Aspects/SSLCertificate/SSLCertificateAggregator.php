@@ -6,7 +6,9 @@ use App\Condor\Aggregator;
 
 class SSLCertificateAggregator implements Aggregator
 {
-    private $snapshots;
+    private $snapshot = null;
+
+    private $snapshots = null;
 
     protected $online = false;
 
@@ -28,11 +30,22 @@ class SSLCertificateAggregator implements Aggregator
 
     public function getSnapshot()
     {
-        return [
+        if ($this->snapshot === null) {
+            $this->summarize()->build();
+        }
+
+        return $this->snapshot;
+    }
+
+    protected function build()
+    {
+        $this->snapshot = [
             'label'     => $this->statusLabel($this->online),
             'online'    => $this->online,
             'snapshots' => $this->snapshots->toArray(),
             ];
+
+        return $this;
     }
 
     protected function statusLabel($isOnline)
