@@ -52,8 +52,12 @@ class UptimeFeedCommand extends Command
         $boards = Board::all();
 
         $this->info('Feeding uptime...');
+        logger()->info("PROCESS Feeding uptime...");
 
         $this->processBoards($boards);
+
+        $this->info('Finished...');
+        logger()->info("PROCESS Feeding uptime...");
     }
 
     protected function processBoards($boards)
@@ -67,9 +71,15 @@ class UptimeFeedCommand extends Command
     {
         foreach ($feeds as $feed) {
             $this->info("BOARD:{$board->id} ASPECT:{$this->aspect_id} FEED:{$feed->name}");
+            logger()->info("PROCESS BOARD:{$board->id} ASPECT:{$this->aspect_id} FEED:{$feed->name}");
 
-            $uptimefeed = new UptimeFeed($feed->apikey);
-            $snapshotData = $uptimefeed->run()->snapshot();
+            try {
+                $uptimefeed = new UptimeFeed($feed->apikey);
+                $snapshotData = $uptimefeed->run()->snapshot();
+            } catch (\Exception $e) {
+                logger()->error($e->getMessage());
+                continue;
+            }
 
             $snapshot = Snapshot::updateOrCreate([
                 'board_id'  => $board->id,
