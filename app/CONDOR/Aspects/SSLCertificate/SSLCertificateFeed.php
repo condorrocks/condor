@@ -9,7 +9,7 @@ class SSLCertificateFeed implements Feeder
 {
     private $feed;
 
-    protected $snapshot;
+    protected $snapshot = null;
 
     public function __construct($params)
     {
