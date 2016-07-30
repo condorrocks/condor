@@ -53,8 +53,12 @@ class SSLCertificateFeedCommand extends Command
         $boards = Board::all();
 
         $this->info('Feeding sslcertificate...');
+        logger()->info("PROCESS Feeding sslcertificate...");
 
         $this->processBoards($boards);
+
+        $this->info('Finished...');
+        logger()->info("PROCESS Feeding sslcertificate...");
     }
 
     protected function processBoards($boards)
@@ -68,11 +72,17 @@ class SSLCertificateFeedCommand extends Command
     {
         foreach ($feeds as $feed) {
             $this->info("BOARD:{$board->id} ASPECT:{$this->aspect_id} FEED:{$feed->name}");
+            logger()->info("BOARD:{$board->id} ASPECT:{$this->aspect_id} FEED:{$feed->name}");
 
-            $sslcertificate = new SSLCertificateFeed($feed->params);
-            $snapshotData = $sslcertificate->run()->snapshot();
+            try {
+                $sslcertificate = new SSLCertificateFeed($feed->params);
+                $snapshotData = $sslcertificate->run()->snapshot();
+            } catch (\Exception $e) {
+                logger()->error($e->getMessage());
+                continue;
+            }
 
-            $snapshot = Snapshot::updateOrCreate([
+            Snapshot::updateOrCreate([
                 'board_id'  => $board->id,
                 'aspect_id' => $this->aspect_id,
                 'hash'      => md5("{$board->id}/{$this->aspect_id}/{$feed->name}"),
