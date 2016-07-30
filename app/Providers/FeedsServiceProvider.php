@@ -28,7 +28,7 @@ class FeedsServiceProvider extends ServiceProvider
         });
 
         $this->app->bind('SSLCertificateMonitor', function () {
-            return new EricMakesStuff\ServerMonitor\Monitors\SSLCertificateMonitor();
+            return new \EricMakesStuff\ServerMonitor\Monitors\SSLCertificateMonitor();
         });
     }
 }
