@@ -8,7 +8,9 @@
             @foreach(array_get($panel, 'summary') as $aspects)
 
                 @foreach(array_get($aspects, 'snapshots') as $aspect => $snapshot)
-                    <li class="list-group-item">{{ array_get($snapshot, 'aspect.name') }} / {{ array_get($snapshot, 'target') }}</li>
+                    <li class="list-group-item" title="{{ trans('dashboard.updated', ['at' => $snapshot['timestamp']]) }}">
+                        {{ array_get($snapshot, 'aspect.name') }} / {{ array_get($snapshot, 'target') }} 
+                    </li>
                 @endforeach
 
             @endforeach

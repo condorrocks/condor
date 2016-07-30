@@ -2,6 +2,7 @@
 
 return [
 
-    'title' => 'Panel de Control',
+    'title'   => 'Panel de Control',
+    'updated' => 'Actualizado :at',
 
 ];

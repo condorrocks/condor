@@ -2,6 +2,7 @@
 
 return [
 
-    'title' => 'Dashboard',
+    'title'   => 'Dashboard',
+    'updated' => 'Updated :at',
 
 ];
