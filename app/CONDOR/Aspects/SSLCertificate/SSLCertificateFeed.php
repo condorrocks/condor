@@ -3,7 +3,6 @@
 namespace App\Condor\Aspects\SSLCertificate;
 
 use App\Condor\Feeder;
-use EricMakesStuff\ServerMonitor\Monitors\SSLCertificateMonitor;
 
 class SSLCertificateFeed implements Feeder
 {
@@ -25,11 +24,11 @@ class SSLCertificateFeed implements Feeder
     {
         $url = $this->params->url;
 
-        $monitor = app()->make('SSLCertificateMonitor', [
+        $monitorAdapter = app()->make('SSLCertificateMonitorAdapter');
+
+        $monitor = $monitorAdapter->runMonitor([
             'url' => $url,
         ]);
-
-        $monitor->runMonitor();
 
         $expiresInDays = $monitor->getCertificateDaysUntilExpiration();
 
