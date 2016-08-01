@@ -10,7 +10,8 @@
         "jenssegers/agent": "^2.3",
         "patricktalmadge/bootstrapper": "~5",
         "ericmakesstuff/laravel-server-monitor": "^1.2",
-        "jenssegers/rollbar": "^1.5"
+        "jenssegers/rollbar": "^1.5",
+        "phpwhois/phpwhois": "~4.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^2.0",
