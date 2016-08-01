@@ -8,27 +8,43 @@ use Illuminate\Support\Facades\Cache;
 
 class Panel
 {
-    private $panel;
+    private $panel = null;
+
+    private $summary = null;
 
     public function __construct($panel)
     {
         $this->panel = $panel;
     }
 
+    protected function initSummary()
+    {
+        $this->summary = new Collection();
+    }
+
     public function get()
     {
-        $name = $this->panel->name;
+        if ($this->summary === null) {
+            $this->build();
+        }
 
+        return [
+            'name'    => $this->panel->name,
+            'summary' => $this->summary,
+        ];
+    }
+
+    protected function build()
+    {
         $aspects = $this->panel->snapshots->groupBy('aspect_id');
 
-        $summary = new Collection();
+        $this->initSummary();
+
         foreach ($aspects as $aspectId => $snapshots) {
             $aspect = $this->getAspect($aspectId);
 
-            $summary->put($aspect->name, $this->summarizeSnapshots($aspect, $snapshots));
+            $this->summary->put($aspect->name, $this->summarizeSnapshots($aspect, $snapshots));
         }
-
-        return compact('name', 'summary');
     }
 
     protected function summarizeSnapshots(Aspect $aspect, $snapshots)
