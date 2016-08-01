@@ -3,7 +3,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="form-group">
-            {!! Form::select('aspect_id', $aspects, [
+            {!! Form::select('aspect_id', $aspects, $feed->aspect ? $feed->aspect->id : null, [
                 'required',
                 'class'=>'form-control',
                 'placeholder'=> trans('manage.feed.label.aspect')
