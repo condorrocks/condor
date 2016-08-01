@@ -25,7 +25,11 @@ class SSLCertificateFeedCommand extends Command
      */
     protected $description = 'Feed SSLCertificate';
 
+    /**
+     * @var int
+     */
     protected $aspect_id;
+
     /**
      * Create a new command instance.
      *
@@ -53,12 +57,12 @@ class SSLCertificateFeedCommand extends Command
         $boards = Board::all();
 
         $this->info('Feeding sslcertificate...');
-        logger()->info("PROCESS Feeding sslcertificate...");
+        logger()->info('PROCESS Feeding sslcertificate...');
 
         $this->processBoards($boards);
 
         $this->info('Finished...');
-        logger()->info("PROCESS Feeding sslcertificate...");
+        logger()->info('PROCESS Feeding sslcertificate...');
     }
 
     protected function processBoards($boards)
