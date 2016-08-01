@@ -52,12 +52,12 @@ class UptimeFeedCommand extends Command
         $boards = Board::all();
 
         $this->info('Feeding uptime...');
-        logger()->info("PROCESS Feeding uptime...");
+        logger()->info('PROCESS Feeding uptime...');
 
         $this->processBoards($boards);
 
         $this->info('Finished...');
-        logger()->info("PROCESS Feeding uptime...");
+        logger()->info('PROCESS Feeding uptime...');
     }
 
     protected function processBoards($boards)
