@@ -12,7 +12,14 @@ class AspectsSeeder extends Seeder
      */
     public function run()
     {
-        Aspect::updateOrCreate(['name' => 'uptime']);
-        Aspect::updateOrCreate(['name' => 'sslcertificate']);
+        $aspects = collect([
+            ['name' => 'uptime'],
+            ['name' => 'sslcertificate'],
+            ['name' => 'whois'],
+        ]);
+
+        $aspects->each(function($aspect){
+            Aspect::updateOrCreate($aspect);
+        });
     }
 }

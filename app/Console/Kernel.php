@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         \App\Console\Commands\UptimeFeedCommand::class,
         \App\Console\Commands\SSLCertificateFeedCommand::class,
+        \App\Console\Commands\WhoisFeedCommand::class,
     ];
 
     /**
@@ -29,5 +30,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('uptime:feed')->hourly();
 
         $schedule->command('sslcertificate:feed')->weekly();
+
+        $schedule->command('whois:feed')->monthly();
     }
 }

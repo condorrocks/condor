@@ -14,5 +14,6 @@ return [
 
     'uptime'         => App\Condor\Aspects\Uptime\UptimeAggregator::class,
     'sslcertificate' => App\Condor\Aspects\SSLCertificate\SSLCertificateAggregator::class,
+    'whois'          => App\Condor\Aspects\Whois\WhoisAggregator::class,
 
 ];
