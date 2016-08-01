@@ -6,7 +6,7 @@ use App\Condor\Aspects\Whois\WhoisMapper;
 use App\Condor\Feeder;
 use phpWhois\Whois;
 
-class WhoisFeed implements Feeder
+class WhoisFeed extends Feeder
 {
     private $feed;
 
@@ -29,16 +29,10 @@ class WhoisFeed implements Feeder
         return $this->snapshot;
     }
 
-    public function run()
+    public function feed()
     {
-        try {
-            $domain = $this->params->domain;
+        $domain = $this->params->domain;
 
-            $this->snapshot = with(new WhoisMapper($this->feed->lookup($domain, false)))->map();
-        } catch (\Exception $e) {
-            echo $e->getMessage();
-        }
-
-        return $this;
+        $this->snapshot = with(new WhoisMapper($this->feed->lookup($domain, false)))->map();
     }
 }

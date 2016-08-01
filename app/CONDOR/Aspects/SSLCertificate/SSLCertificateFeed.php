@@ -4,7 +4,7 @@ namespace App\Condor\Aspects\SSLCertificate;
 
 use App\Condor\Feeder;
 
-class SSLCertificateFeed implements Feeder
+class SSLCertificateFeed extends Feeder
 {
     private $feed;
 
@@ -20,7 +20,7 @@ class SSLCertificateFeed implements Feeder
         return $this->snapshot;
     }
 
-    public function run()
+    public function feed()
     {
         $url = $this->params->url;
 

@@ -5,7 +5,7 @@ namespace App\Condor\Aspects\Uptime;
 use Alariva\UptimeRobot\UptimeRobot;
 use App\Condor\Feeder;
 
-class UptimeFeed implements Feeder
+class UptimeFeed extends Feeder
 {
     private $feed;
 
@@ -22,23 +22,14 @@ class UptimeFeed implements Feeder
         return $this->snapshots->first();
     }
 
-    public function run()
+    public function feed()
     {
         $this->feed->setFormat('json'); //Define the format of responses (json or xml)
 
-        /*
-         * Get status of one monitor by her id
-         */
-        try {
-            $this->feed = $this->feed->getMonitors(0000);
-        } catch (\Exception $e) {
-            echo $e->getMessage();
-        }
+        $this->feed = $this->feed->getMonitors(0000);
 
         $collection = collect($this->feed->monitors->monitor);
 
         $this->snapshots = $collection;
-
-        return $this;
     }
 }

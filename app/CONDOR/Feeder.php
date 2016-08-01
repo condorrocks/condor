@@ -2,9 +2,20 @@
 
 namespace App\Condor;
 
-interface Feeder
+abstract class Feeder
 {
-    public function run();
+    abstract public function feed();
 
-    public function getSnapshot();
+    abstract public function getSnapshot();
+
+    public function run()
+    {
+        try {
+            $this->feed();
+        } catch (\Exception $e) {
+            loggeer()->error('Exception during Feed: '.$e->getMessage());
+        }
+
+        return $this;
+    }
 }
