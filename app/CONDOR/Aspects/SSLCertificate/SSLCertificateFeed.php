@@ -10,6 +10,8 @@ class SSLCertificateFeed extends Feeder
 
     protected $snapshot = null;
 
+    protected $params;
+
     public function __construct($params)
     {
         $this->params = json_decode($params);
