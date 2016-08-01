@@ -10,7 +10,6 @@ class WhoisMapper
 
     public function __construct($data)
     {
-        // dd($data);
         $this->data = $data;
     }
 
@@ -23,7 +22,7 @@ class WhoisMapper
             'owner'        => $this->readOwnerName(),
             'ownerAddress' => $this->readOwnerAddress(),
             'nss'          => $this->readNameServers(),
-            'registered'   => $this->readRegistered($this->data),
+            'registered'   => $this->readRegistered(),
         ];
     }
 

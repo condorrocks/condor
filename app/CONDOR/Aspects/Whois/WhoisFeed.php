@@ -12,6 +12,11 @@ class WhoisFeed implements Feeder
 
     protected $snapshot;
 
+    /**
+     * @var string
+     */
+    protected $params;
+
     public function __construct($params)
     {
         $this->params = json_decode($params);
