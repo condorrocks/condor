@@ -4,6 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property int $id
+ * @property string $name
+ * @property string $apikey
+ * @property string $params
+ * @property BelongsToMany|Collection $boards
+ * @property int $aspect_id
+ * @property BelongsTo|Aspect $aspect
+ */
 class Feed extends Model
 {
     /**

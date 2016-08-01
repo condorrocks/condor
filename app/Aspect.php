@@ -4,6 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property int $id
+ * @property string $name
+ * @property HasMany|Collection $feeds
+ * @property HasMany|Collection $snapshots
+ */
 class Aspect extends Model
 {
     /**
