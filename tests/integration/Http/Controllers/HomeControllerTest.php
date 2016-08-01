@@ -102,14 +102,14 @@ class HomeControllerTest extends TestCase
                 'domain'        => 'condor.rocks',
                 'expiry'        => Carbon::parse('now +7 days')->toDateString(),
                 'status'        => "clientDeleteProhibited https:\/\/icann.org\/epp#clientDeleteProhibited",
-                'owner'         => 'Albano Vallese',
+                'owner'         => 'Ariel Vallese',
                 'ownerAddress'  => [
                     'street' => [
-                        'C. Lima 4041', '5D',
+                        'Street 123', '1Floor',
                     ],
                     'city'    => 'Buenos Aires',
                     'state'   => "N\/A",
-                    'pcode'   => '1603',
+                    'pcode'   => '0123',
                     'country' => 'AR',
                 ],
                 'nss' => [
