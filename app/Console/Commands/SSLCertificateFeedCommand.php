@@ -79,6 +79,7 @@ class SSLCertificateFeedCommand extends Command
                 $snapshotData = $sslcertificate->run()->getSnapshot();
             } catch (\Exception $e) {
                 logger()->error($e->getMessage());
+                $this->error($e->getMessage());
                 continue;
             }
 
