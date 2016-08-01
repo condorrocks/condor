@@ -35,6 +35,11 @@ class HomeControllerTest extends TestCase
      */
     protected $uptimeSnapshot;
 
+    /**
+     * @var App\Snapshot
+     */
+    protected $whoisSnapshot;
+
     /** @test */
     public function it_presents_the_dashboard()
     {
@@ -89,5 +94,33 @@ class HomeControllerTest extends TestCase
             ]);
 
         $this->board->snapshots()->save($this->sslSnapshot);
+
+        $this->whoisSnapshot = $this->createSnapshot([
+            'aspect_id' => App\Aspect::whereName('whois')->first()->id,
+            'target'    => 'example-target-whois',
+            'data'      => json_encode([
+                'domain'        => 'condor.rocks',
+                'expiry'        => Carbon::parse('now +7 days')->toDateString(),
+                'status'        => "clientDeleteProhibited https:\/\/icann.org\/epp#clientDeleteProhibited",
+                'owner'         => 'Albano Vallese',
+                'ownerAddress'  => [
+                    'street' => [
+                        'C. Lima 4041', '5D',
+                    ],
+                    'city'    => 'Buenos Aires',
+                    'state'   => "N\/A",
+                    'pcode'   => '1603',
+                    'country' => 'AR',
+                ],
+                'nss' => [
+                    'ns1.afraid.org' => '127.23.197.123',
+                    'ns2.afraid.org' => '127.43.71.123',
+                    'ns3.afraid.org' => '127.197.18.123',
+                    'ns4.afraid.org' => '127.39.97.123', ],
+                    'registered' => true,
+                ]),
+            ]);
+
+        $this->board->snapshots()->save($this->whoisSnapshot);
     }
 }
