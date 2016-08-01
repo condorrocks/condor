@@ -10,6 +10,8 @@ class SSLCertificateMonitorAdapter
     {
         $monitor = new SSLCertificateMonitor($config);
 
+        $monitor->runMonitor();
+
         return $monitor;
     }
 }
