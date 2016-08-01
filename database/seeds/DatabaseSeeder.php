@@ -12,7 +12,5 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(AspectsSeeder::class);
-
-        $this->call(TestingDatabaseSeeder::class);
     }
 }
