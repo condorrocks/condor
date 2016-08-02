@@ -11,15 +11,22 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', ['as' => 'landing', function () {
     return view('welcome');
-});
+}]);
 
 Route::auth();
 
 Route::group(['middleware' => ['web', 'auth']], function () {
 
-    Route::get('/home', 'HomeController@index');
+    Route::get('/home', ['as' => 'home', function () {
+        return view('welcome');
+    }]);
+
+    Route::get('/dashboard', [
+        'as'   => 'dashboard',
+        'uses' => 'DashboardController@index',
+        ]);
 
     Route::group(['prefix' => 'accounts', 'namespace' => 'Manage'], function () {
 
@@ -114,4 +121,8 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 // LANGUAGE SWITCHER //
 ///////////////////////
 
-Route::get('lang/{lang}', ['as' => 'lang.switch', 'middleware' => 'web', 'uses' => 'LanguageController@switchLang']);
+Route::get('lang/{lang}', [
+    'as'         => 'lang.switch',
+    'middleware' => 'web',
+    'uses'       => 'LanguageController@switchLang',
+]);

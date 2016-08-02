@@ -70,7 +70,7 @@ class UserLoginTest extends TestCase
      */
     public function it_requests_login_when_attempting_to_access_a_protected_page()
     {
-        $this->visit('home');
+        $this->visit(route('dashboard'));
 
         $this->seePageIs('login');
 

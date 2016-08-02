@@ -4,7 +4,7 @@ use Carbon\Carbon;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 
-class HomeControllerTest extends TestCase
+class DashboardControllerTest extends TestCase
 {
     use DatabaseTransactions;
     use WithoutMiddleware;
@@ -47,9 +47,9 @@ class HomeControllerTest extends TestCase
 
         $this->actingAs($this->user);
 
-        $this->visit('/home');
+        $this->visit(route('dashboard'));
 
-        $this->seePageIs('/home');
+        $this->seePageIs('/dashboard');
         $this->see($this->uptimeSnapshot->target);
         $this->see($this->sslSnapshot->target);
     }

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Condor\Panels\Panels;
 use Illuminate\Support\Collection;
 
-class HomeController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Create a new controller instance.

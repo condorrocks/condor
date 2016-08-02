@@ -47,7 +47,7 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">{{ trans('nav.home') }}</a></li>
+                    <li><a href="{{ route('dashboard') }}">{{ trans('nav.dashboard') }}</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav">

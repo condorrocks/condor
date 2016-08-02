@@ -19,7 +19,7 @@ class PasswordResetTest extends TestCase
      */
     public function it_rejects_unregistered_email()
     {
-        $this->visit('/home');
+        $this->visit(route('dashboard'));
 
         $this->seePageIs('/login');
         
@@ -39,7 +39,7 @@ class PasswordResetTest extends TestCase
     {
         $this->user = $this->createUser();
 
-        $this->visit('/home');
+        $this->visit(route('dashboard'));
 
         $this->seePageIs('/login');
 

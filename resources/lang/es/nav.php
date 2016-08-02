@@ -2,8 +2,9 @@
 
 return [
 
-    'home'   => 'Inicio',
-    'manage' => 'Administrar',
-    'boards' => 'Tableros',
+    'home'      => 'Inicio',
+    'dashboard' => 'Tablero',
+    'manage'    => 'Administrar',
+    'boards'    => 'Tableros',
 
 ];
