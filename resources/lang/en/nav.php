@@ -6,5 +6,6 @@ return [
     'dashboard' => 'Dashboard',
     'manage'    => 'Manage',
     'boards'    => 'Boards',
+    'accounts'  => 'My Accounts',
 
 ];
