@@ -45,6 +45,8 @@
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                
+                @if (Auth::check())
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ route('dashboard') }}">{{ trans('nav.dashboard') }}</a></li>
@@ -61,6 +63,7 @@
                             </ul>
                     </li>
                 </ul>
+                @endif
 
                 @include('_navi18n')
 
