@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => env('MAIL_FROM', 'notifications@condor.rocks'), 'name' => env('MAIL_NAME', 'Condor')],
 
     /*
     |--------------------------------------------------------------------------
