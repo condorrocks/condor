@@ -120,7 +120,7 @@ class BoardController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Board $board Business to update service of
+     * @param Board $board
      *
      * @return Response
      */

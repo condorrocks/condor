@@ -11,14 +11,22 @@
         <div class="panel panel-default">
 
             <div class="panel-heading">
-                {{ $account->name }}
+                <i class="fa fa-folder-o"></i>&nbsp;{{ $account->name }}
             </div>
             
             <div class="panel-body">
-                {{-- // --}}
+                {!! Button::normal(trans('manage.account.btn.edit'))
+                    ->withIcon(Icon::edit())
+                    ->asLinkTo(route('manage.accounts.edit', $account) )
+                    ->block() !!}
             </div>
         </div>
         @endforeach
+
+        {!! Button::primary(trans('manage.account.btn.add'))
+            ->withIcon(Icon::plus())
+            ->asLinkTo(route('manage.accounts.create') )
+            ->block() !!}
 
     </div>
 </div>

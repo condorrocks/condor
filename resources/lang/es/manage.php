@@ -2,6 +2,24 @@
 
 return [
 
+    'account' => [
+        'btn' => [
+            'show'   => 'Ver Cuenta',
+            'add'    => 'Agregar Cuenta',
+            'create' => 'Crear Cuenta',
+            'edit'   => 'Editar Cuenta',
+            'update' => 'Actualizar Cuenta',
+            'remove' => 'Eliminar Cuenta',
+        ],
+        'title' => [
+            'create' => 'Create Cuenta',
+            'edit'   => 'Editar Cuenta',
+        ],
+        'label' => [
+            'name'    => 'Nombre de la cuenta',
+        ],
+    ],
+
     'board' => [
         'btn' => [
             'show'   => 'Ver',

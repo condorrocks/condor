@@ -27,7 +27,26 @@ Route::group(['middleware' => ['web', 'auth']], function () {
             'as'   => 'manage.accounts.index',
             'uses' => 'AccountController@index',
         ]);
-
+        Route::get('create', [
+            'as'   => 'manage.accounts.create',
+            'uses' => 'AccountController@create',
+        ]);
+        Route::post('', [
+            'as'   => 'manage.accounts.store',
+            'uses' => 'AccountController@store',
+        ]);
+        Route::get('{account}/edit', [
+            'as'   => 'manage.accounts.edit',
+            'uses' => 'AccountController@edit',
+        ]);
+        Route::put('{account}', [
+            'as'   => 'manage.accounts.update',
+            'uses' => 'AccountController@update',
+        ]);
+        Route::delete('{account}', [
+            'as'   => 'manage.accounts.destroy',
+            'uses' => 'AccountController@destroy',
+        ]);
     });
 
     Route::group(['prefix' => 'boards', 'namespace' => 'Manage'], function () {
