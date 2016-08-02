@@ -163,6 +163,7 @@ return [
         Jenssegers\Agent\AgentServiceProvider::class,
         EricMakesStuff\ServerMonitor\ServerMonitorServiceProvider::class,
         Bootstrapper\BootstrapperL5ServiceProvider::class,
+        GrahamCampbell\Markdown\MarkdownServiceProvider::class,
 
     ],
 
@@ -238,6 +239,8 @@ return [
         'Tabbable'       => Bootstrapper\Facades\Tabbable::class,
         'Table'          => Bootstrapper\Facades\Table::class,
         'Thumbnail'      => Bootstrapper\Facades\Thumbnail::class,
+
+        'Markdown'       => GrahamCampbell\Markdown\Facades\Markdown::class,
     ],
 
 ];
