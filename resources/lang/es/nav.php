@@ -8,4 +8,10 @@ return [
     'boards'    => 'Tableros',
     'accounts'  => 'Mis Cuentas',
 
+    'auth' => [
+        'login'    => 'Iniciar Sesión',
+        'logout'   => 'Cerrar Sesión',
+        'register' => 'Registrarme',
+    ],
+
 ];
