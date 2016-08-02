@@ -83,8 +83,8 @@ class WhoisFeedCommand extends Command
                 'board_id'  => $board->id,
                 'aspect_id' => $this->aspect_id,
                 'feed_id'   => $feed->id,
-                'hash'      => md5("{$board->id}/{$this->aspect_id}/{$feed->id}"),
                 ], [
+                'hash'      => md5("{$board->id}/{$this->aspect_id}/{$feed->id}".time()),
                 'timestamp' => Carbon::now(),
                 'target'    => $feed->name,
                 'data'      => json_encode($snapshotData),
