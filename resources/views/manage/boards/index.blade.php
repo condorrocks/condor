@@ -5,15 +5,17 @@
 
 @section('content')
 <div class="container-fluid">
-    <div class="col-md-4 col-md-offset-4">
+    <div class="row">
 
         @each('manage.boards._account', $accounts, 'account')
 
-        {!! Button::primary(trans('manage.board.btn.add'))
-            ->withIcon(Icon::plus())
-            ->asLinkTo(route('manage.boards.create') )
-            ->block() !!}
-
     </div>
+
+    {!! Button::primary(trans('manage.board.btn.add'))
+        ->withIcon(Icon::plus())
+        ->asLinkTo(route('manage.boards.create') )
+        ->large()
+        ->block() !!}
+
 </div>
 @endsection
