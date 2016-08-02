@@ -25,7 +25,7 @@ class UserRegisterTest extends TestCase
 
         $this->press('Register');
 
-        $this->seePageIs('/');
+        $this->seePageIs('/dashboard');
         $this->see($user->name);
     }
 
