@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property BelongsTo|Board $board
  * @property int $aspect_id
  * @property BelongsTo|Aspect $aspect
+ * @property int $feed_id
  * @property string $hash
  * @property string $target
  * @property Carbon $timestamp
@@ -23,7 +24,7 @@ class Snapshot extends Model
      * @var array
      */
     protected $fillable = [
-        'board_id', 'aspect_id', 'hash', 'target', 'timestamp', 'data',
+        'board_id', 'aspect_id', 'feed_id', 'hash', 'target', 'timestamp', 'data',
     ];
 
     /**

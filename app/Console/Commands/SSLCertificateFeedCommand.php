@@ -75,7 +75,7 @@ class SSLCertificateFeedCommand extends Command
     protected function processFeeds($board, $feeds)
     {
         foreach ($feeds as $feed) {
-            $this->info("BOARD:{$board->id} ASPECT:{$this->aspect_id} FEED:{$feed->name}");
+            $this->info("BOARD:{$board->id} ASPECT:{$this->aspect_id} FEED:{$feed->id} {$feed->name}");
             logger()->info("BOARD:{$board->id} ASPECT:{$this->aspect_id} FEED:{$feed->name}");
 
             try {
@@ -90,7 +90,8 @@ class SSLCertificateFeedCommand extends Command
             Snapshot::updateOrCreate([
                 'board_id'  => $board->id,
                 'aspect_id' => $this->aspect_id,
-                'hash'      => md5("{$board->id}/{$this->aspect_id}/{$feed->name}"),
+                'feed_id'   => $feed->id,
+                'hash'      => md5("{$board->id}/{$this->aspect_id}/{$feed->id}"),
                 ], [
                 'timestamp' => Carbon::now(),
                 'target'    => $feed->name,
