@@ -13,7 +13,7 @@ abstract class Feeder
         try {
             $this->feed();
         } catch (\Exception $e) {
-            loggeer()->error('Exception during Feed: '.$e->getMessage());
+            logger()->error('Exception during Feed: '.$e->getMessage());
         }
 
         return $this;
