@@ -11,6 +11,10 @@
 |
 */
 
+//////////////////
+// Welcome Home //
+//////////////////
+
 Route::get('/', ['as' => 'landing', function () {
 
     $locale = app()->getLocale();
@@ -22,7 +26,15 @@ Route::get('/', ['as' => 'landing', function () {
     return view('welcome', compact('markdown'));
 }]);
 
+//////////
+// Auth //
+//////////
+
 Route::auth();
+
+////////////////
+// Authorized //
+////////////////
 
 Route::group(['middleware' => ['web', 'auth']], function () {
 
@@ -120,9 +132,9 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     });
 });
 
-///////////////////////
-// LANGUAGE SWITCHER //
-///////////////////////
+//////////////
+// Language //
+//////////////
 
 Route::get('lang/{lang}', [
     'as'         => 'lang.switch',
