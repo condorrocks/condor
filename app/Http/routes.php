@@ -12,7 +12,14 @@
 */
 
 Route::get('/', ['as' => 'landing', function () {
-    return view('welcome');
+
+    $locale = app()->getLocale();
+
+    $filepath = 'static'.DIRECTORY_SEPARATOR.$locale.DIRECTORY_SEPARATOR.'welcome.md';
+
+    $markdown = Storage::exists($filepath) ? Storage::get($filepath) : '';
+
+    return view('welcome', compact('markdown'));
 }]);
 
 Route::auth();
