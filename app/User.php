@@ -12,6 +12,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property string $remember_token
  * @property BelongsToMany|Collection $accounts
  * @property HasManyThrough|Collection $boards
+ * @property Carbon $last_login_at
+ * @property string $last_ip
  */
 class User extends Authenticatable
 {
@@ -30,10 +32,12 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'last_login_at', 'last_ip',
     ];
 
     protected $with = ['accounts'];
+
+    protected $dates = ['last_login_at'];
 
     public function accounts()
     {

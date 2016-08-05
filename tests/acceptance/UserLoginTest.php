@@ -14,6 +14,39 @@ class UserLoginTest extends TestCase
     {
         $user = $this->createUser(['email' => 'test@example.org', 'password' => bcrypt('password')]);
 
+        $user = $this->performLogin($user);
+        
+        $this->see($user->name);
+    }
+
+    /**
+     * @test
+     */
+    public function it_logs_audit_fields_upon_successful_login()
+    {    
+        $user = $this->createUser(['email' => 'test@example.org', 'password' => bcrypt('password')]);
+
+        $user = $this->performLogin($user);
+
+        $this->assertNotNull($user->fresh()->last_ip);
+
+        $firstLoginAt = $user->fresh()->last_login_at;
+
+        $this->assertInstanceOf(Carbon\Carbon::class, $firstLoginAt);
+
+        sleep(1);
+
+        $user = $this->performLogin($user);
+
+        $secondLoginAt = $user->fresh()->last_login_at;
+
+        $this->assertInstanceOf(Carbon\Carbon::class, $secondLoginAt);
+        $this->assertNotEquals($firstLoginAt, $secondLoginAt);
+    }
+
+    protected function performLogin($user)
+    {
+        $this->visit('logout');
         $this->visit('login');
 
         $this->see('Login');
@@ -25,7 +58,7 @@ class UserLoginTest extends TestCase
 
         $this->press('Login');
 
-        $this->see($user->name);
+        return $user->fresh();
     }
 
     /**
