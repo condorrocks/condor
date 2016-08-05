@@ -27,6 +27,8 @@ class UserRegisterTest extends TestCase
 
         $this->seePageIs('/dashboard');
         $this->see($user->name);
+
+        $this->assertEquals(1, $user->whereEmail($user->email)->first()->accounts()->count());
     }
 
     /**
