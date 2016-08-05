@@ -4,9 +4,51 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9a8a9ffadb7d5d9ba2d4ed2a121fd7f5",
-    "content-hash": "f0ffac6fde05e0328e464d62504e181d",
+    "hash": "5b07355e62efb20d820b65c09083c1af",
+    "content-hash": "5817a4146aaaef3ab3d313e3f14f234b",
     "packages": [
+        {
+            "name": "alariva/tidiochat",
+            "version": "2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alariva/tidiochat-laravel-5-package.git",
+                "reference": "d8118669dfe5f070bc98513544dcde9774f30996"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alariva/tidiochat-laravel-5-package/zipball/d8118669dfe5f070bc98513544dcde9774f30996",
+                "reference": "d8118669dfe5f070bc98513544dcde9774f30996",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "~5.2",
+                "illuminate/support": "~5.2",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Alariva\\Tidiochat\\": "src\\"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ariel Vallese",
+                    "email": "alariva@gmail.com"
+                }
+            ],
+            "description": "A minimal package for integrating TidioChat.com to your webapp",
+            "homepage": "http://xbooking.com.ar/",
+            "time": "2016-01-07 16:54:30"
+        },
         {
             "name": "classpreloader/classpreloader",
             "version": "3.0.0",
