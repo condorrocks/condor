@@ -19,3 +19,7 @@
     </div>
 </div>
 @endsection
+
+@push('footer_scripts')
+{!! TidioChat::js() !!}
+@endpush

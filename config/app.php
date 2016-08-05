@@ -165,6 +165,7 @@ return [
         Bootstrapper\BootstrapperL5ServiceProvider::class,
         GrahamCampbell\Markdown\MarkdownServiceProvider::class,
         Ipunkt\LaravelAnalytics\AnalyticsServiceProvider::class,
+        Alariva\Tidiochat\TidioChatServiceProvider::class,
 
     ],
 
@@ -243,6 +244,7 @@ return [
 
         'Markdown'       => GrahamCampbell\Markdown\Facades\Markdown::class,
         'Analytics'      => Ipunkt\LaravelAnalytics\AnalyticsFacade::class,
+        'TidioChat'      => Alariva\Tidiochat\Facades\TidioChat::class,
     ],
 
 ];
