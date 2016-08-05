@@ -164,6 +164,7 @@ return [
         EricMakesStuff\ServerMonitor\ServerMonitorServiceProvider::class,
         Bootstrapper\BootstrapperL5ServiceProvider::class,
         GrahamCampbell\Markdown\MarkdownServiceProvider::class,
+        Ipunkt\LaravelAnalytics\AnalyticsServiceProvider::class,
 
     ],
 
@@ -241,6 +242,7 @@ return [
         'Thumbnail'      => Bootstrapper\Facades\Thumbnail::class,
 
         'Markdown'       => GrahamCampbell\Markdown\Facades\Markdown::class,
+        'Analytics'      => Ipunkt\LaravelAnalytics\AnalyticsFacade::class,
     ],
 
 ];

@@ -24,6 +24,9 @@
             margin-right: 6px;
         }
     </style>
+
+    {!! Analytics::render() !!}
+
 </head>
 <body id="app-layout">
     <nav class="navbar navbar-default navbar-static-top">
@@ -45,7 +48,7 @@
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                
+
                 @if (Auth::check())
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
