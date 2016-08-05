@@ -12,7 +12,8 @@
         "ericmakesstuff/laravel-server-monitor": "^1.2",
         "jenssegers/rollbar": "^1.5",
         "phpwhois/phpwhois": "~4.0",
-        "graham-campbell/markdown": "^6.0"
+        "graham-campbell/markdown": "^6.0",
+        "ipunkt/laravel-analytics": "^1.2"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^2.0",
