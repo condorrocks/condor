@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5b07355e62efb20d820b65c09083c1af",
-    "content-hash": "5817a4146aaaef3ab3d313e3f14f234b",
+    "hash": "d624a29d514069780542f07ce0e1061b",
+    "content-hash": "b960267b424fb0aaed391315506f6737",
     "packages": [
         {
             "name": "alariva/tidiochat",
@@ -841,6 +841,49 @@
                 "tokenizer"
             ],
             "time": "2015-12-05 17:17:57"
+        },
+        {
+            "name": "laracasts/flash",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laracasts/flash.git",
+                "reference": "03eec812fd6ae948664ff51b4320785f6d15ee5d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laracasts/flash/zipball/03eec812fd6ae948664ff51b4320785f6d15ee5d",
+                "reference": "03eec812fd6ae948664ff51b4320785f6d15ee5d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Laracasts\\Flash": "src/"
+                },
+                "files": [
+                    "src/Laracasts/Flash/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeffrey Way",
+                    "email": "jeffrey@laracasts.com"
+                }
+            ],
+            "description": "Easy flash notifications",
+            "time": "2016-07-11 20:46:02"
         },
         {
             "name": "laravel/framework",
