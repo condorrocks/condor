@@ -36,7 +36,7 @@ Route::auth();
 // Authorized //
 ////////////////
 
-Route::group(['middleware' => ['web', 'auth']], function () {
+Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/dashboard', [
         'as'   => 'dashboard',
@@ -142,6 +142,5 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
 Route::get('lang/{lang}', [
     'as'         => 'lang.switch',
-    'middleware' => 'web',
     'uses'       => 'LanguageController@switchLang',
 ]);
