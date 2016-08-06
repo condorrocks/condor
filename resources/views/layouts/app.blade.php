@@ -93,6 +93,11 @@
         </div>
     </nav>
 
+    <div class="container">
+        @include('_errors')
+        @include('flash::message')
+    </div>
+
     @yield('content')
 
     <!-- JavaScripts -->
