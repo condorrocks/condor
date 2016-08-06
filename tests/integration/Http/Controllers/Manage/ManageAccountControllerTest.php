@@ -75,6 +75,32 @@ class ManageAccountControllerTest extends TestCase
     }
 
     /** @test */
+    public function it_removes_an_account()
+    {
+        $this->scenario();
+
+        $this->actingAs($this->user);
+
+        $account = $this->account;
+
+        $name = $account->name;
+
+        $this->seeInDatabase('accounts', compact('name'));
+
+        $this->visit(route('manage.accounts.edit', compact('account')));
+
+        $this->assertResponseOk();
+
+        $this->press('Remove');
+
+        $this->dontSeeInDatabase('accounts', compact('name'));
+    }
+
+    /////////////////////////////
+    // Allow User into Account //
+    /////////////////////////////
+
+    /** @test */
     public function it_allows_an_additional_user_into_the_account()
     {
         $this->scenario();
@@ -98,25 +124,51 @@ class ManageAccountControllerTest extends TestCase
     }
 
     /** @test */
-    public function it_removes_an_account()
+    public function it_forbids_allowing_an_unexisting_additional_user_into_the_account()
     {
         $this->scenario();
+
+        $otherUser = $this->createUser();
 
         $this->actingAs($this->user);
 
         $account = $this->account;
 
-        $name = $account->name;
+        $this->visit(route('manage.accounts.edit', compact('account')));
 
-        $this->seeInDatabase('accounts', compact('name'));
+        $this->assertResponseOk();
+
+        $this->assertEquals($otherUser->accounts()->count(), 0);
+
+        $this->type('unexistent@email.com', 'email');
+        $this->press('Allow User');
+
+        $this->assertEquals($otherUser->accounts()->count(), 0);
+        $this->see('no valid user found to allow account access');
+    }
+
+    /** @test */
+    public function it_forbids_allowing_an_invalid_email()
+    {
+        $this->scenario();
+
+        $otherUser = $this->createUser();
+
+        $this->actingAs($this->user);
+
+        $account = $this->account;
 
         $this->visit(route('manage.accounts.edit', compact('account')));
 
         $this->assertResponseOk();
 
-        $this->press('Remove');
+        $this->assertEquals($otherUser->accounts()->count(), 0);
 
-        $this->dontSeeInDatabase('accounts', compact('name'));
+        $this->type('invalid email', 'email');
+        $this->press('Allow User');
+
+        $this->assertEquals($otherUser->accounts()->count(), 0);
+        $this->see('The email must be a valid email address');
     }
 
     //////////////////////
