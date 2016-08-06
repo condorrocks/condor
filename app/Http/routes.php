@@ -69,6 +69,10 @@ Route::group(['middleware' => ['web', 'auth']], function () {
             'as'   => 'manage.accounts.destroy',
             'uses' => 'AccountController@destroy',
         ]);
+        Route::post('{account}', [
+            'as'   => 'manage.accounts.allow',
+            'uses' => 'AccountController@allow',
+        ]);
     });
 
     Route::group(['prefix' => 'boards', 'namespace' => 'Manage'], function () {

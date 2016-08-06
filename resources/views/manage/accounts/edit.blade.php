@@ -18,6 +18,8 @@
 
         </div>
 
+        @include('manage.accounts._form_allow', ['account' => $account, 'submitLabel' => trans('manage.account.btn.allow')])
+
         {!! Form::open(['method' => 'POST', 'route' => ['manage.accounts.destroy', $account]]) !!}
             <input type="hidden" name="_method" value="DELETE">
             {!! Button::danger(trans('manage.account.btn.remove'))

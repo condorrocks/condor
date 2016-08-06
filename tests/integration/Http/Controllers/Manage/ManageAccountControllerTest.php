@@ -75,6 +75,29 @@ class ManageAccountControllerTest extends TestCase
     }
 
     /** @test */
+    public function it_allows_an_additional_user_into_the_account()
+    {
+        $this->scenario();
+
+        $otherUser = $this->createUser();
+
+        $this->actingAs($this->user);
+
+        $account = $this->account;
+
+        $this->visit(route('manage.accounts.edit', compact('account')));
+
+        $this->assertResponseOk();
+
+        $this->assertEquals($otherUser->accounts()->count(), 0);
+
+        $this->type($otherUser->email, 'email');
+        $this->press('Allow User');
+
+        $this->assertEquals($otherUser->accounts()->count(), 1);
+    }
+
+    /** @test */
     public function it_removes_an_account()
     {
         $this->scenario();

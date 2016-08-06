@@ -10,13 +10,16 @@ return [
             'edit'   => 'Editar Cuenta',
             'update' => 'Actualizar Cuenta',
             'remove' => 'Eliminar Cuenta',
+            'allow'  => 'Admitir Usuario',
         ],
         'title' => [
             'create' => 'Create Cuenta',
             'edit'   => 'Editar Cuenta',
+            'allow'  => 'Admitir Usuario',
         ],
         'label' => [
             'name'    => 'Nombre de la cuenta',
+            'email'   => 'Email',
         ],
     ],
 

@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $name
  * @property Illuminate\Support\Collection $boards
  * @property Illuminate\Support\Collection $snapshots
+ * @property Illuminate\Support\Collection $users
  */
 class Account extends Model
 {
@@ -20,6 +21,11 @@ class Account extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function users()
+    {
+        return $this->belongstoMany(User::class);
+    }
 
     public function boards()
     {

@@ -20,6 +20,8 @@
                     ->asLinkTo(route('manage.accounts.edit', $account) )
                     ->block() !!}
             </div>
+
+            @include('manage.accounts._list_users', compact('account'))
         </div>
         @endforeach
 

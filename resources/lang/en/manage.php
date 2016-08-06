@@ -10,13 +10,16 @@ return [
             'edit'   => 'Edit Account',
             'update' => 'Update Account',
             'remove' => 'Remove Account',
+            'allow'  => 'Allow User',
         ],
         'title' => [
             'create' => 'Create account',
             'edit'   => 'Edit account',
+            'allow'  => 'Allow user into account',
         ],
         'label' => [
             'name'    => 'Account name',
+            'email'   => 'Email',
         ],
     ],
 

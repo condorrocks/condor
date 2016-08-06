@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Manage;
 
 use App\Account;
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Http\Request;
 
 class AccountController extends Controller
@@ -128,6 +129,39 @@ class AccountController extends Controller
         $account->forceDelete();
 
         // flash()->success(trans('manager.services.msg.destroy.success'));
+
+        return redirect()->route('manage.accounts.index');
+    }
+
+    /**
+     * Allow the accout to another User.
+     *
+     * @param Account $account
+     *
+     * @return Response
+     */
+    public function allow(Account $account, Request $request)
+    {
+        logger()->info(__METHOD__);
+        logger()->info(sprintf('accountId:%s', $account->id));
+
+        $this->authorize('manage', $account);
+
+        // BEGIN
+
+        $user = User::whereEmail($request->get('email'))->first();
+
+        if (!$user) {
+            flash()->error(trans('manage.accounts.msg.allow.user_not_found'));
+
+            return redirect()->route('manage.accounts.index');
+        }
+
+        if (!$user->accounts->contains($account)) {
+            $user->accounts()->save($account);
+        }
+
+        // flash()->success(trans('manage.boards.msg.update.success'));
 
         return redirect()->route('manage.accounts.index');
     }
