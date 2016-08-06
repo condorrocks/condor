@@ -6,6 +6,7 @@ use App\Account;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use Validator;
 
 class AccountController extends Controller
 {
@@ -148,6 +149,16 @@ class AccountController extends Controller
         $this->authorize('manage', $account);
 
         // BEGIN
+
+        $validator = Validator::make(compact('email'), [
+            'email' => 'bail|required|email',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                             ->withErrors($validator)
+                             ->withInput();
+        }
 
         $user = User::whereEmail($request->get('email'))->first();
 
