@@ -1,5 +1,5 @@
 {
-    "name": "alariva/condor",
+    "name": "condorrocks/condor",
     "description": "Condor is a simple server monitoring feed aggregator.",
     "keywords": ["server", "monitoring", "feed", "aggregator", "dashboard", "sysadmin"],
     "license": "AGPL",
