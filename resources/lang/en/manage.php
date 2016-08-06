@@ -21,6 +21,12 @@ return [
             'name'    => 'Account name',
             'email'   => 'Email',
         ],
+        'msg' => [
+            'allow' => [
+                'success'       => 'User was allowed',
+                'user_not_fond' => 'Sorry, no valid user found to allow account access',
+            ],
+        ],
     ],
 
     'board' => [
@@ -64,6 +70,5 @@ return [
             'account' => 'Account',
         ],
     ],
-
 
 ];

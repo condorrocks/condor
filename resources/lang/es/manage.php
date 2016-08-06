@@ -21,6 +21,12 @@ return [
             'name'    => 'Nombre de la cuenta',
             'email'   => 'Email',
         ],
+        'msg' => [
+            'allow' => [
+                'success'       => 'El usuario indicado fue admitido',
+                'user_not_fond' => 'Disculpas, no identificamos el usuario indicado en nuestros registros',
+            ],
+        ],
     ],
 
     'board' => [

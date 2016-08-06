@@ -148,9 +148,7 @@ class AccountController extends Controller
 
         $this->authorize('manage', $account);
 
-        // BEGIN
-
-        $validator = Validator::make(compact('email'), [
+        $validator = Validator::make($request->only(['email']), [
             'email' => 'bail|required|email',
         ]);
 
@@ -160,10 +158,12 @@ class AccountController extends Controller
                              ->withInput();
         }
 
+        // BEGIN
+
         $user = User::whereEmail($request->get('email'))->first();
 
         if (!$user) {
-            flash()->error(trans('manage.accounts.msg.allow.user_not_found'));
+            flash()->error(trans('manage.account.msg.allow.user_not_found'));
 
             return redirect()->route('manage.accounts.index');
         }
@@ -172,7 +172,7 @@ class AccountController extends Controller
             $user->accounts()->save($account);
         }
 
-        // flash()->success(trans('manage.boards.msg.update.success'));
+        flash()->success(trans('manage.account.msg.allow.success'));
 
         return redirect()->route('manage.accounts.index');
     }
