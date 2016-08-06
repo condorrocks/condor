@@ -2,7 +2,9 @@
 
 namespace App\Http;
 
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Illuminate\Routing\Router;
 
 class Kernel extends HttpKernel
 {
@@ -46,10 +48,29 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => \App\Http\Middleware\Authenticate::class,
+        'auth'       => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
-        'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
-        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'can'        => \Illuminate\Foundation\Http\Middleware\Authorize::class,
+        'guest'      => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'throttle'   => \Illuminate\Routing\Middleware\ThrottleRequests::class,
     ];
+
+    /**
+     * We need to replace the ConfigureLogging bootstrappers to use the custom
+     * one. We’ll do this by overriding their respective constructors and
+     * doing an array_walk to the bootstrappers property.
+     *
+     * @param Application $app
+     * @param Router      $router
+     */
+    public function __construct(Application $app, Router $router)
+    {
+        parent::__construct($app, $router);
+
+        array_walk($this->bootstrappers, function (&$bootstrapper) {
+            if ($bootstrapper === \Illuminate\Foundation\Bootstrap\ConfigureLogging::class) {
+                $bootstrapper = \App\Bootstrap\ConfigureLogging::class;
+            }
+        });
+    }
 }
