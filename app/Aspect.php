@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property int $id
  * @property string $name
- * @property HasMany|Collection $feeds
- * @property HasMany|Collection $snapshots
+ * @property Illuminate\Support\Collection $feeds
+ * @property Illuminate\Support\Collection $snapshots
  */
 class Aspect extends Model
 {

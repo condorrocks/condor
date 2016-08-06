@@ -9,9 +9,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $name
  * @property string $apikey
  * @property string $params
- * @property BelongsToMany|Collection $boards
+ * @property Illuminate\Support\Collection $boards
  * @property int $aspect_id
- * @property BelongsTo|Aspect $aspect
+ * @property App\Aspect $aspect
  */
 class Feed extends Model
 {

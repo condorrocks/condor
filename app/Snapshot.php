@@ -7,13 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property int $id
  * @property int $board_id
- * @property BelongsTo|Board $board
  * @property int $aspect_id
- * @property BelongsTo|Aspect $aspect
  * @property int $feed_id
+ * @property App\Board $board
+ * @property App\Aspect $aspect
+ * @property App\Feed $feed
  * @property string $hash
  * @property string $target
- * @property Carbon $timestamp
+ * @property Carbon\Carbon $timestamp
  * @property string $data
  */
 class Snapshot extends Model

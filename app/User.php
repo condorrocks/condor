@@ -10,9 +10,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property string $email
  * @property string $password
  * @property string $remember_token
- * @property BelongsToMany|Collection $accounts
- * @property HasManyThrough|Collection $boards
- * @property Carbon $last_login_at
+ * @property Illuminate\Support\Collection $accounts
+ * @property Illuminate\Support\Collection $boards
+ * @property Carbon\Carbon $last_login_at
  * @property string $last_ip
  */
 class User extends Authenticatable
