@@ -1,12 +1,10 @@
 <?php
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class ManageFeedControllerTest extends TestCase
 {
     use DatabaseTransactions;
-    use WithoutMiddleware;
     use CreateUser, CreateAccount, CreateBoard, CreateFeed;
 
     /**
