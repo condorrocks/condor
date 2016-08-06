@@ -23,8 +23,8 @@ return [
         ],
         'msg' => [
             'allow' => [
-                'success'       => 'User was allowed',
-                'user_not_fond' => 'Sorry, no valid user found to allow account access',
+                'success'        => 'User was allowed',
+                'user_not_found' => 'Sorry, no valid user found to allow account access',
             ],
         ],
     ],

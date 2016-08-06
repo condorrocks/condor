@@ -23,8 +23,8 @@ return [
         ],
         'msg' => [
             'allow' => [
-                'success'       => 'El usuario indicado fue admitido',
-                'user_not_fond' => 'Disculpas, no identificamos el usuario indicado en nuestros registros',
+                'success'        => 'El usuario indicado fue admitido',
+                'user_not_found' => 'Disculpas, no identificamos el usuario indicado en nuestros registros',
             ],
         ],
     ],
