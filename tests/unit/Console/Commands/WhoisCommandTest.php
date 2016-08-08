@@ -18,6 +18,18 @@ class WhoisCommandTest extends FeedCommandTest
         $this->assertRegExp('/Feeding aspect whois/', $this->commandTester->getDisplay());
     }
 
+    /** @test */
+    public function it_runs_feeds_with_specific_boards()
+    {
+        $this->commandTester->execute([
+            'command' => $this->command->getName(),
+            'aspect'  => 'whois',
+            'boards'  => '1,2,4,7',
+        ]);
+
+        $this->assertRegExp('/Feeding aspect whois/', $this->commandTester->getDisplay());
+    }
+
     protected function scenario()
     {
         $user = $this->createUser();

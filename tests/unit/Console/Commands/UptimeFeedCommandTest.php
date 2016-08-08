@@ -1,7 +1,6 @@
 <?php
 
 use App\Aspect;
-use App\Console\Commands\FeedCommand;
 
 class UptimeFeedCommandTest extends FeedCommandTest
 {
@@ -20,6 +19,18 @@ class UptimeFeedCommandTest extends FeedCommandTest
         $this->commandTester->execute([
             'command' => $this->command->getName(),
             'aspect'  => 'uptime',
+        ]);
+
+        $this->assertRegExp('/Feeding aspect uptime/', $this->commandTester->getDisplay());
+    }
+
+    /** @test */
+    public function it_runs_feeds_with_specific_boards()
+    {
+        $this->commandTester->execute([
+            'command' => $this->command->getName(),
+            'aspect'  => 'uptime',
+            'boards'  => '1,2,4,7',
         ]);
 
         $this->assertRegExp('/Feeding aspect uptime/', $this->commandTester->getDisplay());
