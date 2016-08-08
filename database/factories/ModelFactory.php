@@ -20,6 +20,26 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\Role::class, function (Faker\Generator $faker) {
+    $name = $faker->word;
+
+    return [
+        'name'        => $faker->word,
+        'slug'        => str_slug($name),
+        'description' => $faker->sentence,
+    ];
+});
+
+$factory->define(App\Permission::class, function (Faker\Generator $faker) {
+    $name = $faker->word;
+
+    return [
+        'name'        => $name,
+        'slug'        => str_slug($name),
+        'description' => $faker->sentence,
+    ];
+});
+
 $factory->define(App\Account::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
