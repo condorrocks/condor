@@ -48,4 +48,14 @@ class Feed extends Model
     {
         $this->attributes['params'] = trim($params) ?: null;
     }
+
+    /**
+     * Set Params.
+     *
+     * @param string|null $apikey
+     */
+    public function setApikeyAttribute($apikey = null)
+    {
+        $this->attributes['apikey'] = trim($apikey) ?: null;
+    }
 }

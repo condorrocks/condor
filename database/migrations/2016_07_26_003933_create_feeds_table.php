@@ -17,7 +17,7 @@ class CreateFeedsTable extends Migration
             $table->integer('aspect_id')->unsigned()->index();
             $table->foreign('aspect_id')->references('id')->on('aspects')->onDelete('cascade');
             $table->string('name');
-            $table->string('apikey');
+            $table->string('apikey')->nullable();
             $table->timestamps();
         });
     }
