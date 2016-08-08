@@ -9,12 +9,12 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $board_id
  * @property int $aspect_id
  * @property int $feed_id
- * @property App\Board $board
- * @property App\Aspect $aspect
- * @property App\Feed $feed
+ * @property \App\Board $board
+ * @property \App\Aspect $aspect
+ * @property \App\Feed $feed
  * @property string $hash
  * @property string $target
- * @property Carbon\Carbon $timestamp
+ * @property \Carbon\Carbon $timestamp
  * @property string $data
  */
 class Snapshot extends Model

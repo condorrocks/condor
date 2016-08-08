@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property int $id
  * @property string $name
- * @property Illuminate\Support\Collection $accounts
- * @property Illuminate\Support\Collection $feeds
- * @property Illuminate\Support\Collection $snapshots
+ * @property \Illuminate\Support\Collection $accounts
+ * @property \Illuminate\Support\Collection $feeds
+ * @property \Illuminate\Support\Collection $snapshots
  */
 class Board extends Model
 {

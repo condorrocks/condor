@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property int $id
  * @property string $name
- * @property Illuminate\Support\Collection $boards
- * @property Illuminate\Support\Collection $snapshots
- * @property Illuminate\Support\Collection $users
+ * @property \Illuminate\Support\Collection $boards
+ * @property \Illuminate\Support\Collection $snapshots
+ * @property \Illuminate\Support\Collection $users
  */
 class Account extends Model
 {
