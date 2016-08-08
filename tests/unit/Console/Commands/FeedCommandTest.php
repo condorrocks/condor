@@ -9,10 +9,21 @@ abstract class FeedCommandTest extends TestCase
 {
     use DatabaseTransactions;
 
+    /**
+     * @var \Symfony\Component\Console\Command\Command
+     */
     protected $command;
 
+    /**
+     * @var \Symfony\Component\Console\Tester\CommandTester
+     */
     protected $commandTester;
 
+    /**
+     * Set Up test case.
+     *
+     * @return void
+     */
     public function setUp()
     {
         parent::setUp();
@@ -32,5 +43,10 @@ abstract class FeedCommandTest extends TestCase
         $this->scenario();
     }
 
+    /**
+     * Setup the scenario.
+     *
+     * @return void
+     */
     abstract protected function scenario();
 }
