@@ -15,9 +15,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        \App\Console\Commands\UptimeFeedCommand::class,
-        \App\Console\Commands\SSLCertificateFeedCommand::class,
-        \App\Console\Commands\WhoisFeedCommand::class,
+        \App\Console\Commands\FeedCommand::class,
     ];
 
     /**
@@ -29,11 +27,11 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('uptime:feed')->hourly();
+        $schedule->command('feed:run uptime')->hourly();
 
-        $schedule->command('sslcertificate:feed')->weekly();
+        $schedule->command('feed:run sslcertificate')->weekly();
 
-        $schedule->command('whois:feed')->monthly();
+        $schedule->command('feed:run whois')->monthly();
     }
 
     /**

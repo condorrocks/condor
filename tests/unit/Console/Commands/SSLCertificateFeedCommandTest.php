@@ -1,48 +1,22 @@
 <?php
 
 use App\Aspect;
-use App\Console\Commands\SSLCertificateFeedCommand;
 use Carbon\Carbon;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Symfony\Component\Console\Application as ConsoleApplication;
 use Symfony\Component\Console\Tester\CommandTester;
 
-class SSLCertificateCommandTest extends TestCase
+class SSLCertificateFeedCommandTest extends FeedCommandTest
 {
-    use DatabaseTransactions;
     use CreateUser, CreateAccount, CreateBoard, CreateFeed;
-
-    protected $command;
-
-    protected $commandTester;
-
-    public function setUp()
-    {
-        parent::setUp();
-
-        $this->mockAPI();
-
-        $application = new ConsoleApplication();
-
-        $testedCommand = $this->app->make(SSLCertificateFeedCommand::class);
-        $testedCommand->setLaravel(app());
-        $application->add($testedCommand);
-
-        $this->command = $application->find('sslcertificate:feed');
-
-        $this->commandTester = new CommandTester($this->command);
-
-        $this->scenario();
-    }
 
     /** @test */
     public function it_runs_sslcertificate_feeds()
     {
         $this->commandTester->execute([
             'command' => $this->command->getName(),
+            'aspect'  => 'sslcertificate',
         ]);
 
-        $this->assertRegExp('/Feeding sslcertificate/', $this->commandTester->getDisplay());
+        $this->assertRegExp('/Feeding aspect sslcertificate/', $this->commandTester->getDisplay());
     }
 
     protected function scenario()

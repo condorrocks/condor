@@ -1,41 +1,16 @@
 <?php
 
 use App\Aspect;
-use App\Console\Commands\UptimeFeedCommand;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Symfony\Component\Console\Application as ConsoleApplication;
-use Symfony\Component\Console\Tester\CommandTester;
+use App\Console\Commands\FeedCommand;
 
-class UptimeFeedCommandTest extends TestCase
+class UptimeFeedCommandTest extends FeedCommandTest
 {
-    use DatabaseTransactions;
     use CreateUser, CreateAccount, CreateBoard, CreateFeed;
-
-    protected $command;
-
-    protected $commandTester;
 
     /**
      * @var App\Board
      */
     protected $board;
-
-    public function setUp()
-    {
-        parent::setUp();
-
-        $application = new ConsoleApplication();
-
-        $testedCommand = $this->app->make(UptimeFeedCommand::class);
-        $testedCommand->setLaravel(app());
-        $application->add($testedCommand);
-
-        $this->command = $application->find('uptime:feed');
-
-        $this->commandTester = new CommandTester($this->command);
-
-        $this->scenario();
-    }
 
     /** @test */
     public function it_runs_uptime_feeds()
@@ -44,9 +19,10 @@ class UptimeFeedCommandTest extends TestCase
 
         $this->commandTester->execute([
             'command' => $this->command->getName(),
+            'aspect'  => 'uptime',
         ]);
 
-        $this->assertRegExp('/Feeding uptime/', $this->commandTester->getDisplay());
+        $this->assertRegExp('/Feeding aspect uptime/', $this->commandTester->getDisplay());
     }
 
     protected function scenario()
