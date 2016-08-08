@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Traits\HasRoles;
 
 /**
  * @property int $id
@@ -14,9 +15,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property \Illuminate\Support\Collection $boards
  * @property \Carbon\Carbon $last_login_at
  * @property string $last_ip
+ * @property \Illuminate\Support\Collection roles
  */
 class User extends Authenticatable
 {
+    use HasRoles;
+
     /**
      * The attributes that are mass assignable.
      *
