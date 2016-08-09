@@ -24,6 +24,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        logger()->info(__METHOD__);
+
         $accounts = auth()->user()->accounts()->get();
         
         $panels = [];
