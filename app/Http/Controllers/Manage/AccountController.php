@@ -19,8 +19,6 @@ class AccountController extends Controller
     {
         logger()->info(__METHOD__);
 
-        # $this->authorize('manageAccounts');
-
         // BEGIN
         $accounts = auth()->user()->accounts;
 
@@ -35,8 +33,6 @@ class AccountController extends Controller
     public function create()
     {
         logger()->info(__METHOD__);
-
-        // $this->authorize('manage', $account);
 
         // BEGIN
 
