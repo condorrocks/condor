@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9bf579697c5e64a1d6645a1f4fbae12b",
-    "content-hash": "6c38831b7f39d969d41e785e97e17b71",
+    "hash": "3de4700e5bbbfae9571a99f8ebdbefaa",
+    "content-hash": "d36300ee47d0838c90f775a1880e99c0",
     "packages": [
         {
             "name": "alariva/tidiochat",
@@ -48,6 +48,51 @@
             "description": "A minimal package for integrating TidioChat.com to your webapp",
             "homepage": "http://xbooking.com.ar/",
             "time": "2016-01-07 16:54:30"
+        },
+        {
+            "name": "anhskohbo/no-captcha",
+            "version": "2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/anhskohbo/no-captcha.git",
+                "reference": "cdf18fea985e6176c9663619a39d0de78b007deb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/anhskohbo/no-captcha/zipball/cdf18fea985e6176c9663619a39d0de78b007deb",
+                "reference": "cdf18fea985e6176c9663619a39d0de78b007deb",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.0.*|5.1.*|5.2.*",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Anhskohbo\\NoCaptcha\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "anhskohbo",
+                    "email": "anhskohbo@gmail.com"
+                }
+            ],
+            "description": "No CAPTCHA reCAPTCHA For Laravel.",
+            "keywords": [
+                "captcha",
+                "laravel",
+                "laravel4",
+                "laravel5",
+                "no-captcha",
+                "recaptcha"
+            ],
+            "time": "2015-12-27 16:44:09"
         },
         {
             "name": "classpreloader/classpreloader",

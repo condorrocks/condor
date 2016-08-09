@@ -167,6 +167,7 @@ return [
         Ipunkt\LaravelAnalytics\AnalyticsServiceProvider::class,
         Alariva\Tidiochat\TidioChatServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
 
     ],
 

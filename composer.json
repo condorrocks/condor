@@ -16,7 +16,8 @@
         "graham-campbell/markdown": "^6.0",
         "ipunkt/laravel-analytics": "^1.2",
         "laracasts/flash": "^2.0",
-        "doctrine/dbal": "^2.5"
+        "doctrine/dbal": "^2.5",
+        "anhskohbo/no-captcha": "^2.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^2.0",
