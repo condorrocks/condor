@@ -17,8 +17,6 @@ class BoardController extends Controller
     {
         logger()->info(__METHOD__);
 
-        // $this->authorize('manage');
-
         // BEGIN
         $accounts = auth()->user()->accounts()->with('boards')->get();
 
@@ -33,8 +31,6 @@ class BoardController extends Controller
     public function create()
     {
         logger()->info(__METHOD__);
-
-        // $this->authorize('manageAccounts', $account);
 
         // BEGIN
 
@@ -54,17 +50,11 @@ class BoardController extends Controller
     {
         logger()->info(__METHOD__);
 
-        // $this->authorize('manageServices', $business);
-
         // BEGIN
-
-        //////////////////
-        // FOR REFACTOR //
-        //////////////////
 
         $account = auth()->user()->accounts()->findOrFail($request->get('account_id'));
 
-        // $this->authorize('manageAccount', $account);
+        $this->authorize('manage', $account);
 
         $board = Board::firstOrNew($request->only('name'));
 
@@ -159,10 +149,6 @@ class BoardController extends Controller
         $this->authorize('manage', $board);
 
         // BEGIN
-
-        //////////////////
-        // FOR REFACTOR //
-        //////////////////
 
         $board->forceDelete();
 
