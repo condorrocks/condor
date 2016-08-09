@@ -75,6 +75,8 @@ Change the artisan path and add the only Cron entry you need:
 
     * * * * * php /path/to/artisan schedule:run >> /dev/null 2>&1
 
+> **Note:** Remember to run this command as the same user of the webserver.
+
 -----
 <a name="step5"></a>
 ## Step 5: Start Page
