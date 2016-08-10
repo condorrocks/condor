@@ -9,7 +9,7 @@ condor
 [![Build Status](https://travis-ci.org/condorrocks/condor.svg?branch=master)](https://travis-ci.org/condorrocks/condor)
 [![Code Climate](https://codeclimate.com/github/condorrocks/condor/badges/gpa.svg)](https://codeclimate.com/github/condorrocks/condor)
 [![Test Coverage](https://codeclimate.com/github/condorrocks/condor/badges/coverage.svg)](https://codeclimate.com/github/condorrocks/condor/coverage)
-[![Current Beta](https://img.shields.io/badge/dev--beta-0.3-yellow.svg?style=flat-square)](https://condor.rocks/)
+[![Current Beta](https://img.shields.io/badge/dev--beta-0.4-yellow.svg?style=flat-square)](https://condor.rocks/)
 [![License](https://img.shields.io/:license-AGPL--3.0-blue.svg?style=flat-square)](http://www.gnu.org/licenses/agpl-3.0.txt)
 
 > **Condor** watches diverse statuses, and elegantly reports every drift.
