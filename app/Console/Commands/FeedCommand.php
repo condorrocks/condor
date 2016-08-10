@@ -6,6 +6,7 @@ use App\Aspect;
 use App\Board;
 use App\Jobs\RunFeed;
 use Illuminate\Console\Command;
+use Illuminate\Support\Collection;
 
 class FeedCommand extends Command
 {
@@ -54,12 +55,12 @@ class FeedCommand extends Command
     /**
      * Process Boards.
      *
-     * @param  \App\Aspect $aspect
+     * @param  string $aspect
      * @param  Illuminate\Support\Collection $boards
      *
      * @return void
      */
-    protected function processBoards($aspect, $boards)
+    protected function processBoards($aspect, Collection $boards)
     {
         foreach ($boards as $board) {
             $this->info("Dispatching feed for board:{$board->id}");
