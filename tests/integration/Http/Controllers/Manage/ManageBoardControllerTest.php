@@ -46,6 +46,7 @@ class ManageBoardControllerTest extends TestCase
         $this->type('testboard', 'name');
         $this->press('Create');
 
+        $this->see('Your new board was created');
         $this->seeInDatabase('boards', ['name' => 'testboard']);
     }
 
@@ -71,6 +72,7 @@ class ManageBoardControllerTest extends TestCase
         $this->type($editedName, 'name');
         $this->press('Update');
 
+        $this->see('Your board was successfully updated');
         $this->seeInDatabase('boards', ['name' => $editedName]);
     }
 
@@ -93,6 +95,7 @@ class ManageBoardControllerTest extends TestCase
 
         $this->press('Remove');
 
+        $this->see('Your board was successfully deleted');
         $this->dontSeeInDatabase('boards', ['name' => $board->name]);
     }
 

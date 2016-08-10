@@ -26,6 +26,15 @@ return [
                 'success'        => 'El usuario indicado fue admitido',
                 'user_not_found' => 'Disculpas, no identificamos el usuario indicado en nuestros registros',
             ],
+            'store' => [
+                'success'        => 'Tu cuenta fue creada exitosamente',
+            ],
+            'update' => [
+                'success'        => 'Tu cuenta fue actualizada exitosamente',
+            ],
+            'destroy' => [
+                'success'        => 'Tu cuenta fue eliminada exitosamente',
+            ],
         ],
     ],
 
@@ -48,6 +57,17 @@ return [
             'account' => 'Cuenta',
         ],
         'feeds_count' => ':count fuentes',
+        'msg' => [
+            'store' => [
+                'success'        => 'Tu panel fue creado exitosamente',
+            ],
+            'update' => [
+                'success'        => 'Tu panel fue actualizado exitosamente',
+            ],
+            'destroy' => [
+                'success'        => 'Tu panel fue eliminado exitosamente',
+            ],
+        ],
     ],
 
     'feed' => [
@@ -68,6 +88,17 @@ return [
             'apikey'  => 'API Key',
             'params'  => 'Parámetros',
             'account' => 'Cuenta',
+        ],
+        'msg' => [
+            'store' => [
+                'success'        => 'Tu fuente fue creada exitosamente',
+            ],
+            'update' => [
+                'success'        => 'Tu fuente fue actualizada exitosamente',
+            ],
+            'destroy' => [
+                'success'        => 'Tu fuente fue eliminada exitosamente',
+            ],
         ],
     ],
 

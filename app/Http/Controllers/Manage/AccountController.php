@@ -58,7 +58,7 @@ class AccountController extends Controller
 
         logger()->info("Created accountId:{$account->id}");
 
-        // flash()->success(trans('manager.service.msg.store.success'));
+        flash()->success(trans('manage.account.msg.store.success'));
 
         return redirect()->route('manage.accounts.index');
     }
@@ -102,7 +102,7 @@ class AccountController extends Controller
             'name',
         ]));
 
-        // flash()->success(trans('manage.boards.msg.update.success'));
+        flash()->success(trans('manage.account.msg.update.success'));
 
         return redirect()->route('manage.accounts.index');
     }
@@ -125,7 +125,7 @@ class AccountController extends Controller
 
         $account->forceDelete();
 
-        // flash()->success(trans('manager.services.msg.destroy.success'));
+        flash()->success(trans('manage.account.msg.destroy.success'));
 
         return redirect()->route('manage.accounts.index');
     }

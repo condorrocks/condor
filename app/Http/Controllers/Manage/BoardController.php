@@ -62,7 +62,7 @@ class BoardController extends Controller
 
         logger()->info("Stored boardId:{$board->id} into accountId:{$account->id}");
 
-        // flash()->success(trans('manager.service.msg.store.success'));
+        flash()->success(trans('manage.board.msg.store.success'));
 
         return redirect()->route('manage.boards.index');
     }
@@ -129,7 +129,7 @@ class BoardController extends Controller
             'name',
         ]));
 
-        // flash()->success(trans('manage.boards.msg.update.success'));
+        flash()->success(trans('manage.board.msg.update.success'));
 
         return redirect()->route('manage.boards.index');
     }
@@ -152,7 +152,7 @@ class BoardController extends Controller
 
         $board->forceDelete();
 
-        // flash()->success(trans('manager.services.msg.destroy.success'));
+        flash()->success(trans('manage.board.msg.destroy.success'));
 
         return redirect()->route('manage.boards.index');
     }

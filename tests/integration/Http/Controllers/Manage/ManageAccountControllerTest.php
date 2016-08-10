@@ -48,6 +48,7 @@ class ManageAccountControllerTest extends TestCase
         $this->type($name, 'name');
         $this->press('Create');
 
+        $this->see('Your account was successfully created');
         $this->seeInDatabase('accounts', compact('name'));
     }
 
@@ -71,6 +72,7 @@ class ManageAccountControllerTest extends TestCase
         $this->type($editedName, 'name');
         $this->press('Update');
 
+        $this->see('Your account was successfully updated');
         $this->seeInDatabase('accounts', ['name' => $editedName]);
     }
 

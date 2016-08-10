@@ -55,7 +55,7 @@ class FeedController extends Controller
 
         logger()->info("Stored feedId:{$feed->id} into boardId:{$board->id}");
 
-        // flash()->success(trans('manager.service.msg.store.success'));
+        flash()->success(trans('manage.feed.msg.store.success'));
 
         return redirect()->route('manage.boards.show', compact('board'));
     }
@@ -123,7 +123,7 @@ class FeedController extends Controller
 
         $feed->update($request->all());
 
-        // flash()->success(trans('manage.boards.msg.update.success'));
+        flash()->success(trans('manage.feed.msg.update.success'));
 
         return redirect()->route('manage.boards.show', compact('board'));
     }
@@ -146,7 +146,7 @@ class FeedController extends Controller
 
         $feed->forceDelete();
 
-        // flash()->success(trans('manager.services.msg.destroy.success'));
+        flash()->success(trans('manage.feed.msg.destroy.success'));
 
         return redirect()->route('manage.boards.index');
     }

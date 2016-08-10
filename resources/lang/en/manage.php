@@ -26,6 +26,15 @@ return [
                 'success'        => 'User was allowed',
                 'user_not_found' => 'Sorry, no valid user found to allow account access',
             ],
+            'store' => [
+                'success'        => 'Your account was successfully created',
+            ],
+            'update' => [
+                'success'        => 'Your account was successfully updated',
+            ],
+            'destroy' => [
+                'success'        => 'Your account was successfully deleted',
+            ],
         ],
     ],
 
@@ -48,6 +57,17 @@ return [
             'account' => 'Account',
         ],
         'feeds_count' => ':count feeds',
+        'msg' => [
+            'store' => [
+                'success'        => 'Your new board was created',
+            ],
+            'update' => [
+                'success'        => 'Your board was successfully updated',
+            ],
+            'destroy' => [
+                'success'        => 'Your board was successfully deleted',
+            ],
+        ],
     ],
 
     'feed' => [
@@ -68,6 +88,17 @@ return [
             'apikey'  => 'API Key',
             'params'  => 'Parameters',
             'account' => 'Account',
+        ],
+        'msg' => [
+            'store' => [
+                'success'        => 'Your feed was created',
+            ],
+            'update' => [
+                'success'        => 'Your feed was successfully updated',
+            ],
+            'destroy' => [
+                'success'        => 'Your feed was successfully deleted',
+            ],
         ],
     ],
 

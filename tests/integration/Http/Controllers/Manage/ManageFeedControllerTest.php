@@ -45,6 +45,7 @@ class ManageFeedControllerTest extends TestCase
         $this->type('{"url":"http://condor.rocks"}', 'params');
         $this->press('Create');
 
+        $this->see('Your feed was created');
         $this->seeInDatabase('feeds', ['apikey' => 'example-api-key']);
     }
 
@@ -66,6 +67,7 @@ class ManageFeedControllerTest extends TestCase
         $this->type('new-example-api-key', 'apikey');
         $this->press('Update');
 
+        $this->see('Your feed was successfully updated');
         $this->seeInDatabase('feeds', ['apikey' => 'new-example-api-key']);
         $this->dontSeeInDatabase('feeds', ['apikey' => $oldApiKey]);
     }
@@ -87,6 +89,7 @@ class ManageFeedControllerTest extends TestCase
 
         $this->press('Remove');
 
+        $this->see('Your feed was successfully deleted');
         $this->dontSeeInDatabase('feeds', ['apikey' => $oldApiKey]);
     }
 
