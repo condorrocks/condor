@@ -6,6 +6,7 @@ use App\Aspect;
 use App\Board;
 use App\Feed;
 use App\Http\Controllers\Controller;
+use App\Jobs\RunFeed;
 use Illuminate\Http\Request;
 
 class FeedController extends Controller
@@ -52,6 +53,8 @@ class FeedController extends Controller
         $feed = Feed::create($request->all());
 
         $board->feeds()->save($feed);
+
+        dispatch(new RunFeed($feed->aspect->name, $board));
 
         logger()->info("Stored feedId:{$feed->id} into boardId:{$board->id}");
 

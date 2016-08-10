@@ -40,6 +40,8 @@ class ManageFeedControllerTest extends TestCase
 
         $this->seePageIs("/feeds/create/board/{$this->board->id}");
 
+        $this->expectsJobs(\App\Jobs\RunFeed::class);
+
         $this->type('example-feed', 'name');
         $this->type('example-api-key', 'apikey');
         $this->type('{"url":"http://condor.rocks"}', 'params');
