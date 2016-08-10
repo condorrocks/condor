@@ -32,6 +32,20 @@ class AuthController extends Controller
     protected $redirectTo = '/dashboard';
 
     /**
+     * Amount of bad attempts user can make.
+     *
+     * @var int
+     */
+    protected $maxLoginAttempts = 3;
+
+    /**
+     * Time for which user is going to be blocked in seconds.
+     *
+     * @var int
+     */
+    protected $lockoutTime = 60;
+
+    /**
      * Create a new authentication controller instance.
      *
      * @return void
