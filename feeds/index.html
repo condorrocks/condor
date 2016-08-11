@@ -9,10 +9,12 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Accounts - Condor User Manual</title>
+        <title>Feeds - Condor User Manual</title>
       
       
       
+      
+        <meta name="author" content="Condor Rocks">
       
     
     <meta property="og:url" content="None">
@@ -66,6 +68,11 @@
   
   <body class=" ">
     
+      
+      
+        
+      
+    
     <div class="backdrop">
       <div class="backdrop-paper"></div>
     </div>
@@ -87,7 +94,7 @@
             
           </span>
         
-        Accounts
+        Feeds
       </div>
     </div>
     
@@ -116,7 +123,7 @@
       <div class="drawer">
         <nav aria-label="Navigation">
   
-  <a href="/" class="project">
+  <a href="https://github.com/condorrocks/condor/" class="project">
     <div class="banner">
       
       <div class="name">
@@ -127,11 +134,30 @@
           </span>
         </strong>
         
+          <br>
+          condorrocks/condor
+        
       </div>
     </div>
   </a>
   <div class="scrollable">
     <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            
+            <a href="https://github.com/condorrocks/condor//archive/master.zip" target="_blank" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/condorrocks/condor//stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
       
       <div class="toc">
         <ul>
@@ -147,14 +173,9 @@
           
             
   <li>
-    <a class="current" title="Accounts" href="./">
+    <a class="" title="Accounts" href="../accounts/">
       Accounts
     </a>
-    
-      
-        
-      
-      
     
   </li>
 
@@ -170,9 +191,36 @@
           
             
   <li>
-    <a class="" title="Feeds" href="../feeds/">
+    <a class="current" title="Feeds" href="./">
       Feeds
     </a>
+    
+      
+        
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Whois Feed" href="#whois-feed">
+                Whois Feed
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="SSL Certificate Feed" href="#ssl-certificate-feed">
+                SSL Certificate Feed
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Uptime Feed" href="#uptime-feed">
+                Uptime Feed
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
@@ -187,11 +235,36 @@
       <article class="article">
         <div class="wrapper">
           
-          <h1 id="accounts">Accounts</h1>
-<p>You may have many <strong><em>Accounts</em></strong> in order to group your different organization profiles.</p>
-<p>We have already created one for you, and you will see your first <em>example</em> <strong><em>Board</em></strong> also already created under the 
-name <code>example-board</code>.</p>
+          <h1 id="feeds">Feeds</h1>
+<p>To create a <strong><em>Feed</em></strong> into a <strong><em>Board</em></strong> click the <em>Show</em> button into the desired Board.</p>
+<p>Then click <em>Add Feed</em>.</p>
+<p>Every Feed has a Name you can choose, and either an <em>API Key</em> or <em>Parameters</em> to configure.</p>
+<blockquote>
+<p><em>Parameters</em> must be in valid JSON format. The structure is explained below.</p>
+</blockquote>
+<h3 id="whois-feed">Whois Feed</h3>
+<p>To setup a <em>Whois</em> feed, use the following parameters structure:</p>
+<p>Parameters:</p>
+<pre><code>{
+    &quot;domain&quot;: &quot;condor.rocks&quot;
+}
+</code></pre>
+
+<h3 id="ssl-certificate-feed">SSL Certificate Feed</h3>
+<p>To setup a <em>SSL Certificate</em> feed, use the following parameters structure:</p>
+<p>Parameters:</p>
+<pre><code>{
+    &quot;url&quot;: &quot;https://condor.rocks&quot;
+}
+</code></pre>
+
+<h3 id="uptime-feed">Uptime Feed</h3>
+<p>Condor currently supports UptimeRobot as the uptime provider.</p>
+<p>More providers will be added in the near future.</p>
+<p>To setup an <em>Uptime</em> feed, just add your single-monitor <strong><em>UptimeRobot API Key</em></strong>.</p>
           <aside class="copyright" role="note">
+            
+              Condor Rocks 2016 &ndash;
             
             Documentation built with
             <a href="http://www.mkdocs.org" target="_blank">MkDocs</a>
@@ -207,7 +280,7 @@ name <code>example-board</code>.</p>
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href=".." title="Introduction">
+        <a href="../boards/" title="Boards">
           <span class="direction">
             Previous
           </span>
@@ -217,7 +290,7 @@ name <code>example-board</code>.</p>
             </div>
             <div class="stretch">
               <div class="title">
-                Introduction
+                Boards
               </div>
             </div>
           </div>
@@ -225,22 +298,6 @@ name <code>example-board</code>.</p>
       
     </div>
     <div class="next">
-      
-        <a href="../boards/" title="Boards">
-          <span class="direction">
-            Next
-          </span>
-          <div class="page">
-            <div class="stretch">
-              <div class="title">
-                Boards
-              </div>
-            </div>
-            <div class="button button-next" role="button" aria-label="Next">
-              <i class="icon icon-forward"></i>
-            </div>
-          </div>
-        </a>
       
     </div>
   </nav>
@@ -260,10 +317,42 @@ name <code>example-board</code>.</p>
     </main>
     <script>
       var base_url = '..';
-      var repo_id  = '';
+      var repo_id  = 'condorrocks/condor';
     </script>
     <script src="../assets/javascripts/application-997097ee0c.js"></script>
     
+    
+      <script>
+        (function(i,s,o,g,r,a,m){
+          i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||
+          []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
+          m.parentNode.insertBefore(a,m)
+        })(window, document,
+          'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        /* General initialization */
+        ga('create', 'UA-81974709-1', 'docs.condor.rocks');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+        /* Track outbound links */
+        var buttons = document.querySelectorAll('a');
+        Array.prototype.map.call(buttons, function(item) {
+          if (item.host != document.location.host) {
+            item.addEventListener('click', function() {
+              var action = item.getAttribute('data-action') || 'follow';
+              ga('send', 'event', 'outbound', action, item.href);
+            });
+          }
+        });
+        /* Register handler to log search on blur */
+        var query = document.querySelector('.query');
+        query.addEventListener('blur', function() {
+          if (this.value) {
+            var path = document.location.pathname;
+            ga('send', 'pageview', path + '?q=' + this.value);
+          }
+        });
+      </script>
     
   </body>
 </html>
