@@ -26,9 +26,13 @@ condor
 
 Enjoy Condor out of the box at [condor.rocks](https://condor.rocks/).
 
+## Documentation
+
+Read the [User Manual](https://condorrocks.github.io/condor/).
+
 ## Installing
 
-[Read the INSTALLING section](INSTALLING.md)
+Read the [INSTALLING section](INSTALLING.md).
 
 ## Contributing
 
