@@ -1,0 +1,84 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Welcome to Condor\n\n\nIntroduction\n\n\nSupervising our organization's infrastructure should ensure us peace of mind, instead of just more hassle.\n\n\nThis inspires us to create a panoramic view with all the relevant resources within reach.\n\n\n\n\nCondor watches diverse statuses, and elegantly reports every drift.\n\n\n\n\nWhat does it watch for?\n\n\nCondor watches for different \nAspects\n of your servers.\n\n\nAspects\n\n\nSo far, we support the following \nAspects\n\n\n\n\nUptime\n: Verify that your site or app is up and running.\n\n\nWhois\n: Anticipate to expiry dates of Domain Names.\n\n\nSSLCertificates\n: Anticipate to expiry dates of SSL Certificates.\n\n\n\n\n\n\nYes, Condor will be adding more Aspects to monitor in the near future.\n\n\n\n\nGetting Started\n\n\nRegistering a User\n\n\nRegistering a user in Condor is free and takes less than a minute.\n\n\nGo to \nhttps://condor.rocks/\n and click \nRegister\n.\n\n\nFill-in the brief form and you are in.\n\n\nYou will see we have already created an \nAccount\n for you, so let's move on.", 
+            "title": "Introduction"
+        }, 
+        {
+            "location": "/#welcome-to-condor", 
+            "text": "", 
+            "title": "Welcome to Condor"
+        }, 
+        {
+            "location": "/#introduction", 
+            "text": "Supervising our organization's infrastructure should ensure us peace of mind, instead of just more hassle.  This inspires us to create a panoramic view with all the relevant resources within reach.   Condor watches diverse statuses, and elegantly reports every drift.", 
+            "title": "Introduction"
+        }, 
+        {
+            "location": "/#what-does-it-watch-for", 
+            "text": "Condor watches for different  Aspects  of your servers.", 
+            "title": "What does it watch for?"
+        }, 
+        {
+            "location": "/#aspects", 
+            "text": "So far, we support the following  Aspects   Uptime : Verify that your site or app is up and running.  Whois : Anticipate to expiry dates of Domain Names.  SSLCertificates : Anticipate to expiry dates of SSL Certificates.    Yes, Condor will be adding more Aspects to monitor in the near future.", 
+            "title": "Aspects"
+        }, 
+        {
+            "location": "/#getting-started", 
+            "text": "", 
+            "title": "Getting Started"
+        }, 
+        {
+            "location": "/#registering-a-user", 
+            "text": "Registering a user in Condor is free and takes less than a minute.  Go to  https://condor.rocks/  and click  Register .  Fill-in the brief form and you are in.  You will see we have already created an  Account  for you, so let's move on.", 
+            "title": "Registering a User"
+        }, 
+        {
+            "location": "/accounts/", 
+            "text": "Accounts\n\n\nYou may have many \nAccounts\n in order to group your different organization profiles.\n\n\nWe have already created one for you, and you will see your first \nexample\n \nBoard\n also already created under the \nname \nexample-board\n.", 
+            "title": "Accounts"
+        }, 
+        {
+            "location": "/accounts/#accounts", 
+            "text": "You may have many  Accounts  in order to group your different organization profiles.  We have already created one for you, and you will see your first  example   Board  also already created under the \nname  example-board .", 
+            "title": "Accounts"
+        }, 
+        {
+            "location": "/boards/", 
+            "text": "Boards\n\n\nBoards are group of \nmonitor feeds\n displayed as panels.\n\n\n\n\nNow go to \nManage\n \n \nBoards\n to add \nFeeds\n.", 
+            "title": "Boards"
+        }, 
+        {
+            "location": "/boards/#boards", 
+            "text": "Boards are group of  monitor feeds  displayed as panels.   Now go to  Manage     Boards  to add  Feeds .", 
+            "title": "Boards"
+        }, 
+        {
+            "location": "/feeds/", 
+            "text": "Feeds\n\n\nTo create a \nFeed\n into a \nBoard\n click the \nShow\n button into the desired Board.\n\n\nThen click \nAdd Feed\n.\n\n\nEvery Feed has a Name you can choose, and either an \nAPI Key\n or \nParameters\n to configure.\n\n\n\n\nParameters\n must be in valid JSON format. The structure is explained below.\n\n\n\n\nWhois Feed\n\n\nTo setup a \nWhois\n feed, use the following parameters structure:\n\n\nParameters:\n\n\n{\n    \ndomain\n: \ncondor.rocks\n\n}\n\n\n\n\nSSL Certificate Feed\n\n\nTo setup a \nSSL Certificate\n feed, use the following parameters structure:\n\n\nParameters:\n\n\n{\n    \nurl\n: \nhttps://condor.rocks\n\n}\n\n\n\n\nUptime Feed\n\n\nCondor currently supports UptimeRobot as the uptime provider.\n\n\nMore providers will be added in the near future.\n\n\nTo setup an \nUptime\n feed, just add your single-monitor \nUptimeRobot API Key\n.", 
+            "title": "Feeds"
+        }, 
+        {
+            "location": "/feeds/#feeds", 
+            "text": "To create a  Feed  into a  Board  click the  Show  button into the desired Board.  Then click  Add Feed .  Every Feed has a Name you can choose, and either an  API Key  or  Parameters  to configure.   Parameters  must be in valid JSON format. The structure is explained below.", 
+            "title": "Feeds"
+        }, 
+        {
+            "location": "/feeds/#whois-feed", 
+            "text": "To setup a  Whois  feed, use the following parameters structure:  Parameters:  {\n     domain :  condor.rocks \n}", 
+            "title": "Whois Feed"
+        }, 
+        {
+            "location": "/feeds/#ssl-certificate-feed", 
+            "text": "To setup a  SSL Certificate  feed, use the following parameters structure:  Parameters:  {\n     url :  https://condor.rocks \n}", 
+            "title": "SSL Certificate Feed"
+        }, 
+        {
+            "location": "/feeds/#uptime-feed", 
+            "text": "Condor currently supports UptimeRobot as the uptime provider.  More providers will be added in the near future.  To setup an  Uptime  feed, just add your single-monitor  UptimeRobot API Key .", 
+            "title": "Uptime Feed"
+        }
+    ]
+}
