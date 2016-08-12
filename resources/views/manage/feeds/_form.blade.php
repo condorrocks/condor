@@ -24,7 +24,6 @@
     <div class="row">
         <div class="form-group">
             {!! Form::text('apikey', null, [
-                'required',
                 'class'=>'form-control',
                 'placeholder'=> trans('manage.feed.label.apikey')
                 ]) !!}
