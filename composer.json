@@ -6,7 +6,7 @@
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.2.*",
+        "laravel/framework": "5.3.*",
         "jenssegers/agent": "^2.3",
         "patricktalmadge/bootstrapper": "~5",
         "ericmakesstuff/laravel-server-monitor": "^1.2",
@@ -37,7 +37,7 @@
             "Alariva\\UptimeRobot\\": "packages/alariva/uptimerobot/src"
         },
         "files": [
-            "app/Http/helpers.php"
+            "app/helpers.php"
         ]
     },
     "autoload-dev": {

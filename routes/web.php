@@ -53,7 +53,9 @@ Route::get('/', ['as' => 'landing', function () {
 // Auth //
 //////////
 
-Route::auth();
+// Route::auth();
+Auth::routes();
+Route::get('/logout', 'Auth\LoginController@logout');
 
 ////////////////
 // Authorized //
