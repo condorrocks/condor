@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "70320ba8943cf719e0a3c46ba5d53f5a",
-    "content-hash": "4fdfe5e5c74889c58547674630185124",
+    "hash": "38bd12d212f6e395508d2de760b14d74",
+    "content-hash": "9e112abbbd96bff49bbf53cb87c9af6c",
     "packages": [
         {
             "name": "alariva/tidiochat",
@@ -5248,7 +5248,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.5.9"
+        "php": ">=5.6.4"
     },
     "platform-dev": []
 }
