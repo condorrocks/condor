@@ -27,7 +27,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('feed:run uptime')->hourly();
+        $schedule->command('feed:run uptime')->everyFiveMinutes();
 
         $schedule->command('feed:run sslcertificate')->weekly();
 
