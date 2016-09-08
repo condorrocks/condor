@@ -4,6 +4,7 @@ namespace App\Jobs;
 
 use App\Aspect;
 use App\Board;
+use App\Events\SnapshotWasUpdated;
 use App\Feed;
 use App\Snapshot;
 use Carbon\Carbon;
@@ -71,7 +72,7 @@ class RunFeed extends Job implements ShouldQueue
                 continue;
             }
 
-            Snapshot::updateOrCreate([
+            $snapshot = Snapshot::updateOrCreate([
                 'board_id'  => $this->board->id,
                 'aspect_id' => $this->aspect->id,
                 'feed_id'   => $feed->id,
@@ -81,6 +82,8 @@ class RunFeed extends Job implements ShouldQueue
                 'target'    => $feed->name,
                 'data'      => json_encode($snapshotData),
                 ]);
+
+            event(new SnapshotWasUpdated($snapshot));
         }
     }
 

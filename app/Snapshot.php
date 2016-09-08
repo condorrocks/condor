@@ -44,4 +44,17 @@ class Snapshot extends Model
     {
         return $this->belongsTo(Aspect::class);
     }
+
+    /**
+     * Get a value from JSON data
+     * 
+     * @param  string $key
+     * @return mixed|null
+     */
+    public function data($key)
+    {
+        $array = json_decode($this->data, true);
+
+        return array_get($array, $key, null);
+    }
 }

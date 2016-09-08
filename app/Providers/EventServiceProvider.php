@@ -16,6 +16,9 @@ class EventServiceProvider extends ServiceProvider
         \App\Events\NewUserWasRegistered::class => [
             \App\Listeners\AutoSetupUserAccount::class,
         ],
+        \App\Events\SnapshotWasUpdated::class => [
+            \App\Listeners\CheckSnapshot::class,  
+        ]
     ];
 
     /**
