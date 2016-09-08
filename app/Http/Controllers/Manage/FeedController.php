@@ -50,9 +50,7 @@ class FeedController extends Controller
 
         // BEGIN
 
-        $feed = Feed::create($request->all());
-
-        $board->feeds()->save($feed);
+        $feed = $board->feeds()->create($request->all());
 
         dispatch(new RunFeed($feed->aspect->name, $board));
 
