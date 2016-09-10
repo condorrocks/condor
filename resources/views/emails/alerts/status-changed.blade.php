@@ -1,2 +1,7 @@
+@if($snapshot->status == 0)
+    {{ trans('alerts.status-change-up', ['target' => $snapshot->target] )}}
+@endif
 
-The status of your snapshot changed: $shapshot->last_status
+@if($snapshot->status != 0)
+    {{ trans('alerts.status-change-down', ['target' => $snapshot->target] )}}
+@endif
