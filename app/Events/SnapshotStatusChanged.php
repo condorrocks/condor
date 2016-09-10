@@ -19,11 +19,6 @@ class SnapshotStatusChanged
     public $snapshot;
 
     /**
-     * @var int
-     */
-    public $newStatus;
-
-    /**
      * @var \Illuminate\Support\Collection
      */
     public $issues;
@@ -33,11 +28,9 @@ class SnapshotStatusChanged
      *
      * @return void
      */
-    public function __construct(Snapshot $snapshot, $newStatus, Collection $issues)
+    public function __construct(Snapshot $snapshot, Collection $issues)
     {
         $this->snapshot = $snapshot;
-
-        $this->newStatus = $newStatus;
 
         $this->issues = $issues;
     }

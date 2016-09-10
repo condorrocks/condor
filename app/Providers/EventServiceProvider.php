@@ -20,7 +20,7 @@ class EventServiceProvider extends ServiceProvider
             \App\Listeners\CheckSnapshot::class,  
         ],
         \App\Events\SnapshotStatusChanged::class => [
-            \App\Listeners\SendSnapshotChangeNotification::class,  
+            \App\Listeners\SendSnapshotChangeAlert::class,  
         ]
     ];
 

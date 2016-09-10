@@ -31,14 +31,15 @@ class CheckSnapshot
 
         $issues = $checker->lookForIssues();
 
-        if($event->snapshot->last_status != $checker->status())
-        {
-            event(new SnapshotStatusChanged($event->snapshot, $checker->status(), $issues));
+        if ($event->snapshot->status != $checker->status()) {
+            $event->snapshot->last_status = $event->snapshot->status;
+
+            $event->snapshot->status = $checker->status();
+
+            $event->snapshot->save();
+
+            event(new SnapshotStatusChanged($event->snapshot, $issues));
         }
-
-        $event->snapshot->last_status = $checker->status();
-
-        $event->snapshot->save();
     }
 
     /**

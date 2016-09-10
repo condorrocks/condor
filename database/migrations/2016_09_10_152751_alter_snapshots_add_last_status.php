@@ -14,6 +14,7 @@ class AlterSnapshotsAddLastStatus extends Migration
     public function up()
     {
         Schema::table('snapshots', function (Blueprint $table) {
+            $table->integer('status')->nullable()->unsigned()->index();
             $table->integer('last_status')->nullable()->unsigned()->index();
         });
     }
@@ -26,6 +27,7 @@ class AlterSnapshotsAddLastStatus extends Migration
     public function down()
     {
         Schema::table('snapshots', function (Blueprint $table) {
+            $table->dropColumn('status');
             $table->dropColumn('last_status');
         });
     }

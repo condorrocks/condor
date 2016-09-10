@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property int $id
  * @property string $name
+ * @property string $alert_to
  * @property \Illuminate\Support\Collection $accounts
  * @property \Illuminate\Support\Collection $feeds
  * @property \Illuminate\Support\Collection $snapshots
@@ -19,7 +20,7 @@ class Board extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
+        'name', 'alert_to'
     ];
 
     public function accounts()
