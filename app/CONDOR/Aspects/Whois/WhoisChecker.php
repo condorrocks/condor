@@ -8,11 +8,22 @@ class WhoisChecker extends Checker
 {
     public function status()
     {
+        if (!$this->checkRegistered()) {
+            return parent::STATUS_NOK;
+        }
+
         return parent::STATUS_OK; // mock
     }
 
     public function lookForIssues()
     {
-        // mock
+        if (!$this->checkRegistered()) {
+            $this->addIssue('Domain is not registered');
+        }
+    }
+
+    protected function checkRegistered()
+    {
+        return (bool) $this->snapshot->data('registered');
     }
 }

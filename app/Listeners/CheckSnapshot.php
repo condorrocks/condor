@@ -36,7 +36,7 @@ class CheckSnapshot
 
         $issues = $checker->issues();
 
-        logger()->debug(serialize($issues));
+        logger()->debug('Issues:'.$issues->count().' ('.$issues->first().')');
     }
 
     /**

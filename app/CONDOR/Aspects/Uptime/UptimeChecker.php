@@ -15,9 +15,9 @@ class UptimeChecker extends Checker
 
     public function status()
     {
-        $status = $this->snapshot->data('status');
+        $externalStatus = $this->snapshot->data('status');
 
-        switch ((int) $status) {
+        switch ((int) $externalStatus) {
             case self::UPTIMEROBOT_STATUS_UP:
                 return parent::STATUS_OK;
                 break;
@@ -32,19 +32,7 @@ class UptimeChecker extends Checker
 
     public function lookForIssues()
     {
-        $externalStatus = $this->snapshot->data('status');
-
-        switch ((int) $externalStatus) {
-            case self::UPTIMEROBOT_STATUS_UP:
-                $status = parent::STATUS_OK;
-                break;
-            case self::UPTIMEROBOT_STATUS_DOWN:
-                $status = parent::STATUS_NOK;
-                break;
-            default:
-                $status = parent::STATUS_WARN;
-                break;
-        }
+        $status = $this->status();
 
         if ($status === parent::STATUS_NOK) {
             $this->addIssue('Server is down');
