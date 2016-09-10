@@ -54,6 +54,7 @@ return [
         ],
         'label' => [
             'name'    => 'Nombre del tablero',
+            'alert_to'=> 'Alertar a email',
             'account' => 'Cuenta',
         ],
         'feeds_count' => ':count fuentes',

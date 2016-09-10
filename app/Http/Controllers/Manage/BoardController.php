@@ -126,7 +126,7 @@ class BoardController extends Controller
         $board->accounts()->sync([$request->get('account_id')]);
 
         $board->update($request->only([
-            'name',
+            'name', 'alert_to'
         ]));
 
         flash()->success(trans('manage.board.msg.update.success'));

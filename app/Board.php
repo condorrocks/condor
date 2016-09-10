@@ -37,4 +37,14 @@ class Board extends Model
     {
         return $this->hasMany(Snapshot::class)->with('aspect');
     }
+
+    /**
+     * Set alert_to.
+     *
+     * @param string $alert_to
+     */
+    public function setAlertToAttribute($alert_to)
+    {
+        $this->attributes['alert_to'] = trim($alert_to) ?: null;
+    }
 }

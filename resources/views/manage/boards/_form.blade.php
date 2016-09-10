@@ -21,6 +21,15 @@
 
     <div class="row">
         <div class="form-group">
+            {!! Form::text('alert_to', null, [
+                'class'=>'form-control',
+                'placeholder'=> trans('manage.board.label.alert_to')
+                ]) !!}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group">
             {!! Button::primary($submitLabel)->large()->block()->submit() !!}
         </div>
     </div>

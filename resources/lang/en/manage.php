@@ -54,6 +54,7 @@ return [
         ],
         'label' => [
             'name'    => 'Board name',
+            'alert_to'=> 'Alert to email',
             'account' => 'Account',
         ],
         'feeds_count' => ':count feeds',
