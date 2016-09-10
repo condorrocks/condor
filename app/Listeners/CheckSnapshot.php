@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Events\SnapshotStatusChanged;
 use App\Events\SnapshotWasUpdated;
 use App\Snapshot;
 
@@ -26,28 +27,29 @@ class CheckSnapshot
      */
     public function handle(SnapshotWasUpdated $event)
     {
-        $snapshot = $event->snapshot;
+        $checker = $this->getChecker($event->snapshot->aspect->name, $event->snapshot);
 
-        $aspect = $snapshot->aspect;
+        $issues = $checker->lookForIssues();
 
-        $checker = $this->createCheckerObject($aspect->name, $snapshot);
+        if($event->snapshot->last_status != $checker->status())
+        {
+            event(new SnapshotStatusChanged($event->snapshot, $checker->status(), $issues));
+        }
 
-        $checker->lookForIssues();
+        $event->snapshot->last_status = $checker->status();
 
-        $issues = $checker->issues();
-
-        logger()->debug('Issues:'.$issues->count().' ('.$issues->first().')');
+        $event->snapshot->save();
     }
 
     /**
-     * Create a chcker Object.
+     * Get a checker Object.
      *
      * @param  string $aspectName
      * @param  \App\Snapshot   $snapshot
      *
      * @return void
      */
-    protected function createCheckerObject($aspectName, Snapshot $snapshot)
+    protected function getChecker($aspectName, Snapshot $snapshot)
     {
         switch ($aspectName) {
             case 'whois':

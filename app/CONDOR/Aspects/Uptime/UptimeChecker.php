@@ -41,5 +41,7 @@ class UptimeChecker extends Checker
         if ($status === parent::STATUS_WARN) {
             $this->addIssue('Server may have problems');
         }
+
+        return $this->issues();
     }
 }

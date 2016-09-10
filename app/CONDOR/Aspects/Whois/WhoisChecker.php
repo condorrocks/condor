@@ -20,6 +20,8 @@ class WhoisChecker extends Checker
         if (!$this->checkRegistered()) {
             $this->addIssue('Domain is not registered');
         }
+
+        return $this->issues();
     }
 
     protected function checkRegistered()

@@ -20,6 +20,8 @@ class SSLCertificateChecker extends Checker
         if ($this->checkExpired()) {
             $this->addIssue('SSL Certificate is expired');
         }
+
+        return $this->issues();
     }
 
     protected function checkExpired()
