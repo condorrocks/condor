@@ -48,4 +48,40 @@ class FeedTest extends TestCase
 
         $this->assertInstanceOf(Illuminate\Database\Eloquent\Builder::class, $scope);
     }
+
+    /** @test */
+    public function it_can_be_enabled()
+    {
+        $feed = $this->createFeed();
+
+        $feed->enable();
+
+        $this->assertTrue($feed->fresh()->enabled);
+    }
+
+    /** @test */
+    public function it_can_be_disabled()
+    {
+        $feed = $this->createFeed();
+
+        $feed->disable();
+
+        $this->assertFalse($feed->fresh()->enabled);
+    }
+
+    /** @test */
+    public function it_can_be_toggled()
+    {
+        $feed = $this->createFeed();
+
+        $feed->disable();
+
+        $feed->toggle(true);
+
+        $this->assertTrue($feed->fresh()->enabled);
+
+        $feed->toggle(false);
+
+        $this->assertFalse($feed->fresh()->enabled);
+    }
 }

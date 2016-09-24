@@ -40,7 +40,7 @@ class RunFeed extends Job implements ShouldQueue
 
         $this->init($aspectName);
 
-        $this->feeds = $board->feeds()->forAspect($this->aspect->id)->get();
+        $this->feeds = $board->feeds()->forAspect($this->aspect->id)->enabled()->get();
     }
 
     /**
@@ -69,6 +69,8 @@ class RunFeed extends Job implements ShouldQueue
                 $snapshotData = with($this->createFeedObject($this->aspect, $feed))->run()->getSnapshot();
             } catch (\Exception $e) {
                 logger()->error($e->getMessage());
+                $feed->disable();
+                logger()->warning("FEED GOT DISABLED BOARD:{$this->board->id} ASPECT:{$this->aspect->id} FEED:{$feed->name}");
                 continue;
             }
 

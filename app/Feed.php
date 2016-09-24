@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $params
  * @property \Illuminate\Support\Collection $boards
  * @property int $aspect_id
+ * @property bool $enabled
  * @property \App\Aspect $aspect
  */
 class Feed extends Model
@@ -21,7 +22,11 @@ class Feed extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'apikey', 'aspect_id', 'params'
+        'name', 'apikey', 'aspect_id', 'params', 'enabled',
+    ];
+
+    protected $casts = [
+        'enabled' => 'boolean',
     ];
 
     public function boards()
@@ -37,6 +42,16 @@ class Feed extends Model
     public function scopeForAspect($query, $aspectId)
     {
         return $query->where('aspect_id', $aspectId);
+    }
+
+    public function scopeEnabled($query)
+    {
+        return $query->where('enabled', true);
+    }
+
+    public function scopeDisabled($query)
+    {
+        return $query->where('enabled', false);
     }
 
     /**
@@ -57,5 +72,21 @@ class Feed extends Model
     public function setApikeyAttribute($apikey = null)
     {
         $this->attributes['apikey'] = trim($apikey) ?: null;
+    }
+
+    public function enable()
+    {
+        $this->toggle(true);
+    }
+
+    public function disable()
+    {
+        $this->toggle(false);
+    }
+
+    public function toggle($value = true)
+    {
+        $this->attributes['enabled'] = (bool) $value;
+        $this->save();
     }
 }

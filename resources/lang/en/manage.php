@@ -89,6 +89,7 @@ return [
             'apikey'  => 'API Key',
             'params'  => 'Parameters',
             'account' => 'Account',
+            'enabled' => 'Enabled',
         ],
         'msg' => [
             'store' => [

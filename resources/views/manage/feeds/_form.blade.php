@@ -1,4 +1,5 @@
 {!! Form::hidden('board_id', $board->id) !!}
+{!! Form::hidden('enabled', '0') !!}
 
 <div class="container-fluid">
     <div class="row">
@@ -35,6 +36,16 @@
             {!! Form::textarea('params', null, [
                 'class'=>'form-control',
                 'placeholder'=> trans('manage.feed.label.params')
+                ]) !!}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group">
+            {!! Form::label('enabled', trans('manage.feed.label.enabled')) !!}
+            {!! Form::checkbox('enabled', '1', null, [
+                'class'=>'form-control',
+                'placeholder'=> trans('manage.feed.label.enabled'),
                 ]) !!}
         </div>
     </div>

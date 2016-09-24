@@ -58,6 +58,7 @@ $factory->define(App\Feed::class, function (Faker\Generator $faker) {
         'apikey'    => md5($faker->name),
         'params'    => json_encode(['param1' => 'value1', 'param2' => 'value2']),
         'aspect_id' => factory(App\Aspect::class)->create()->id,
+        'enabled'   => true,
     ];
 });
 

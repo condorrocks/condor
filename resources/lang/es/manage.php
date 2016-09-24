@@ -89,6 +89,7 @@ return [
             'apikey'  => 'API Key',
             'params'  => 'Parámetros',
             'account' => 'Cuenta',
+            'enabled' => 'Habilitada',
         ],
         'msg' => [
             'store' => [
