@@ -70,7 +70,7 @@ class RunFeed extends Job implements ShouldQueue
             } catch (\Exception $e) {
                 logger()->error($e->getMessage());
                 $feed->disable();
-                logger()->warning("FEED GOT DISABLED BOARD:{$this->board->id} ASPECT:{$this->aspect->id} FEED:{$feed->name}");
+                logger()->error("FEED GOT DISABLED BOARD:{$this->board->id} ASPECT:{$this->aspect->id} FEED:{$feed->name}");
                 continue;
             }
 
