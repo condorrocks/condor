@@ -190,6 +190,7 @@ return [
         Alariva\Tidiochat\TidioChatServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+        McCool\LaravelAutoPresenter\AutoPresenterServiceProvider::class,
 
     ],
 
