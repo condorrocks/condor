@@ -40,4 +40,7 @@ return [
         'level'        => env('ROLLBAR_LEVEL', 'error'),
     ],
 
+    'uptimerobot' => [
+        'key' => env('UPTIMEROBOT_KEY', false),
+    ],
 ];

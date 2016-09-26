@@ -101,11 +101,11 @@ class RunFeed extends Job implements ShouldQueue
     {
         switch ($aspect->name) {
             case 'whois':
-                return new \App\Condor\Aspects\Whois\WhoisFeed($feed->params);
+                return new \App\Condor\Aspects\Whois\WhoisFeed($feed->parameters);
             case 'sslcertificate':
-                return new \App\Condor\Aspects\SSLCertificate\SSLCertificateFeed($feed->params);
+                return new \App\Condor\Aspects\SSLCertificate\SSLCertificateFeed($feed->parameters);
             case 'uptime':
-                return new \App\Condor\Aspects\Uptime\UptimeFeed($feed->apikey);
+                return new \App\Condor\Aspects\Uptime\UptimeFeed($feed->parameters);
             default:
                 throw new \Exception("Unidentified aspect name:{$aspect->name}", 1);
         }

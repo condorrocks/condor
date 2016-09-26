@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $name
  * @property string $apikey
  * @property string $params
+ * @property string $private_params
  * @property \Illuminate\Support\Collection $boards
  * @property int $aspect_id
  * @property bool $enabled
@@ -22,7 +23,7 @@ class Feed extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'apikey', 'aspect_id', 'params', 'enabled',
+        'name', 'apikey', 'aspect_id', 'params', 'private_params', 'enabled',
     ];
 
     protected $casts = [
@@ -62,6 +63,34 @@ class Feed extends Model
     public function setParamsAttribute($params)
     {
         $this->attributes['params'] = trim($params) ?: null;
+    }
+
+    /**
+     * Set Private Params.
+     *
+     * @param string $privateParams
+     */
+    public function setPrivateParamsAttribute($privateParams)
+    {
+        $this->attributes['private_params'] = trim($privateParams) ?: null;
+    }
+
+    /**
+     * Get parameters.
+     */
+    public function getParametersAttribute()
+    {
+        $private = $this->attributes['private_params'] ?: json_encode([]);
+
+        $public = $this->attributes['params'] ?: json_encode([]);
+
+        $private = (array) json_decode($private);
+
+        $public = (array) json_decode($public);
+
+        $merge = array_merge($public, $private);
+
+        return json_encode($merge);
     }
 
     /**
