@@ -18,7 +18,8 @@
         "laracasts/flash": "^2.0",
         "doctrine/dbal": "^2.5",
         "anhskohbo/no-captcha": "^2.1",
-        "mccool/laravel-auto-presenter": "^4.3"
+        "mccool/laravel-auto-presenter": "^4.3",
+        "fideloper/proxy": "^3.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^2.0",

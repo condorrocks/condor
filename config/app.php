@@ -191,6 +191,7 @@ return [
         Laracasts\Flash\FlashServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
         McCool\LaravelAutoPresenter\AutoPresenterServiceProvider::class,
+        Fideloper\Proxy\TrustedProxyServiceProvider::class,
 
     ],
 
