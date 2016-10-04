@@ -78,6 +78,8 @@ class WhoisMapper
                 return $owner;
             }
         }
+
+        return 'Unknown';
     }
 
     protected function readOwnerAddress()
