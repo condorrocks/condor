@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('status', function () {
+    return response()->json(['status' => 'ONLINE']);
+});
+
 //////////////////
 // ROOT CONTEXT //
 //////////////////
