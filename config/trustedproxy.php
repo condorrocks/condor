@@ -13,9 +13,7 @@ return [
      * a requirement when you cannot know the address
      * of your proxy (e.g. if using Rackspace balancers).
      */
-    'proxies' => [
-        '*',
-    ],
+    'proxies' => '*',
 
     /*
      * Or, to trust all proxies, uncomment this:
@@ -39,5 +37,5 @@ return [
         \Illuminate\Http\Request::HEADER_CLIENT_HOST  => 'X_FORWARDED_HOST',
         \Illuminate\Http\Request::HEADER_CLIENT_PROTO => 'X_FORWARDED_PROTO',
         \Illuminate\Http\Request::HEADER_CLIENT_PORT  => 'X_FORWARDED_PORT',
-    ]
+    ],
 ];
