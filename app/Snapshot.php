@@ -2,7 +2,9 @@
 
 namespace App;
 
+use App\Presenters\SnapshotPresenter;
 use Illuminate\Database\Eloquent\Model;
+use McCool\LaravelAutoPresenter\HasPresenter;
 
 /**
  * @property int $id
@@ -19,7 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $status
  * @property int $last_status
  */
-class Snapshot extends Model
+class Snapshot extends Model implements HasPresenter
 {
     /**
      * The attributes that are mass assignable.
@@ -36,6 +38,11 @@ class Snapshot extends Model
      * @var array
      */
     protected $dates = ['timestamp'];
+
+    public function getPresenterClass()
+    {
+        return SnapshotPresenter::class;
+    }
 
     public function board()
     {

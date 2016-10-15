@@ -12,6 +12,8 @@ class Panel
 
     private $summary = null;
 
+    private $snapshots;
+
     public function __construct($panel)
     {
         $this->panel = $panel;
@@ -22,6 +24,11 @@ class Panel
         $this->summary = new Collection();
     }
 
+    protected function initSnapshots()
+    {
+        $this->snapshots = new Collection();
+    }
+
     public function get()
     {
         if ($this->summary === null) {
@@ -29,8 +36,9 @@ class Panel
         }
 
         return [
-            'name'    => $this->panel->name,
-            'summary' => $this->summary,
+            'name'      => $this->panel->name,
+            'summary'   => $this->summary,
+            'snapshots' => $this->snapshots,
         ];
     }
 
@@ -40,10 +48,16 @@ class Panel
 
         $this->initSummary();
 
+        $this->initSnapshots();
+
         foreach ($aspects as $aspectId => $snapshots) {
             $aspect = $this->getAspect($aspectId);
 
             $this->summary->put($aspect->name, $this->summarizeSnapshots($aspect, $snapshots));
+
+            foreach ($snapshots as $snapshot) {
+                $this->snapshots->push($snapshot);
+            }
         }
     }
 
