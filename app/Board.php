@@ -38,6 +38,11 @@ class Board extends Model
         return $this->hasMany(Snapshot::class)->with('aspect');
     }
 
+    public function defaultAccount()
+    {
+        return $this->accounts()->first();
+    }
+
     /**
      * Set alert_to.
      *
