@@ -37,6 +37,8 @@ class UptimeFeed extends Feeder
 
         $this->feed = $this->feed->getMonitors(array_get($this->params, 'monitor_id', 0));
 
+        logger()->info('CAPTURED RESPONSE:'.serialize($this->feed));
+
         $collection = collect($this->feed->monitors->monitor);
 
         $this->snapshots = $collection;
