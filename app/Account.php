@@ -39,4 +39,9 @@ class Account extends Model
             'id', 'board_id'
         );
     }
+
+    public function defaultUser()
+    {
+        return $this->users()->first();
+    }
 }
