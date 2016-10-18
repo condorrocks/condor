@@ -23,6 +23,8 @@ class AutoSetupUserAccount
         logger()->info(__METHOD__);
 
         $this->setupAccount($event->user);
+
+        $this->configurePreferredLocale($event->user);
     }
 
     protected function setupAccount(User $user)
@@ -91,5 +93,14 @@ class AutoSetupUserAccount
             ]);
 
         return $feed;
+    }
+
+    protected function configurePreferredLocale(User $user)
+    {
+        $locale = session()->get('applocale', config('app.locale'));
+
+        $user->locale = $locale;
+
+        $user->save();
     }
 }

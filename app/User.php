@@ -11,6 +11,7 @@ use Illuminate\Notifications\Notifiable;
  * @property string $name
  * @property string $email
  * @property string $password
+ * @property string $locale
  * @property string $remember_token
  * @property \Illuminate\Support\Collection $accounts
  * @property \Illuminate\Support\Collection $boards
@@ -29,7 +30,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'locale',
     ];
 
     /**
