@@ -4,6 +4,7 @@ namespace App\Listeners;
 
 use App\Events\SnapshotStatusChanged;
 use App\Mail\SnapshotStatusChangeAlert;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Mail;
 
 class SendSnapshotChangeAlert
@@ -28,6 +29,12 @@ class SendSnapshotChangeAlert
     public function handle(SnapshotStatusChanged $event)
     {
         logger()->debug("Snapshot Status Changed from:{$event->snapshot->last_status} to:{$event->snapshot->status} hash:{$event->snapshot->hash} issues:{$event->issues->count()}");
+
+        $user = $event->snapshot->board->defaultAccount()->defaultUser();
+
+        $locale = $user->locale;
+
+        App::setLocale($locale);
 
         if($event->snapshot->board->alert_to !== null)
         {
