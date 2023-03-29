@@ -3,11 +3,10 @@
 This project is no longer maintained.
 
 <a href="https://condor.rocks/">
-    <img src="http://i.imgur.com/wF5PdsV.png" alt="condor.rocks" title="rondor.rocks" align="right" />
+    <img src="" alt="condor.rocks" title="rondor.rocks" align="right" />
 </a>
 
-condor
-============
+### Condor
 
 [![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg?maxAge=2592000?style=flat-square)](https://gitter.im/condorrocks)
 [![Build Status](https://travis-ci.org/condorrocks/condor.svg?branch=master)](https://travis-ci.org/condorrocks/condor)
