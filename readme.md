@@ -1,3 +1,7 @@
+# Project abandoned
+
+This project is no longer maintained.
+
 <a href="https://condor.rocks/">
     <img src="http://i.imgur.com/wF5PdsV.png" alt="condor.rocks" title="rondor.rocks" align="right" />
 </a>
